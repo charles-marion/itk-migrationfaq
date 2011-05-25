@@ -166,9 +166,10 @@ switch ($action)
     $xml = simplexml_load_file($xmlFile);
 
     $tmp = (string) $xml->SampleCode[0]->Old[0];
+    $content = '';
+    $content="<p>".nl2br($xml->Description[0])."</p>";
     if(!empty($tmp))
-      {
-      $content="<p>".$xml->Description[0]."</p>";
+      {      
       $content.="<h3>Broken API Sample Code:</h3>";
       $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xml->SampleCode[0]->Old[0])).":code:";
       $content.="<h3>New API Sample Code:</h3>";

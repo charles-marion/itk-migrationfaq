@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Linux-gcc42"
+	BuildStamp="20110102-0100-Nightly"
+	Name="dash16.kitware"
+	Generator="ctest-2.8.2"
+	CompilerName=""
+	OSName="Linux"
+	Hostname="dash16"
+	OSRelease="2.6.26-2-686"
+	OSVersion="#1 SMP Tue Mar 9 17:35:51 UTC 2010"
+	OSPlatform="i686"
+	Is64Bits="0"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="15"
+	ModelID="4"
+	ProcessorCacheSize="1024"
+	NumberOfLogicalCPU="2"
+	NumberOfPhysicalCPU="1"
+	TotalVirtualMemory="1474"
+	TotalPhysicalMemory="503"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2800.27"
+>
+<Build>
+	<StartDateTime>Jan 02 00:11 EST</StartDateTime>
+	<StartBuildTime>1293945084</StartBuildTime>
+<BuildCommand>/usr/bin/make -i</BuildCommand>
+	<Failure type="Warning">
+		<!-- Meta-information about the build action -->
+		<Action>
+			<TargetName>itkopenjpeg</TargetName>
+			<Language>C</Language>
+			<SourceFile>Utilities/openjpeg/tcd.c</SourceFile>
+			<OutputFile>CMakeFiles/itkopenjpeg.dir/tcd.c.o</OutputFile>
+			<OutputType>object file</OutputType>
+		</Action>
+
+		<!-- Details of command -->
+		<Command>
+			<WorkingDirectory>/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/openjpeg</WorkingDirectory>
+			<Argument>/usr/bin/gcc-4.2</Argument>
+			<Argument>-Ditkopenjpeg_EXPORTS</Argument>
+			<Argument>-Wall</Argument>
+			<Argument>-Wno-uninitialized</Argument>
+			<Argument>-Wno-unused-parameter</Argument>
+			<Argument>-g</Argument>
+			<Argument>-fPIC</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Algorithms</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/BasicFilters</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Common</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Numerics</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/IO</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Numerics/FEM</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Numerics/NeuralNetworks</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/SpatialObject</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/MetaIO</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/NrrdIO</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/NrrdIO</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/DICOMParser</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/DICOMParser</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/expat</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/expat</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/nifti/niftilib</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/nifti/znzlib</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/itkExtHdrs</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Numerics/Statistics</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/vxl/v3p/netlib</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/vxl/vcl</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/vxl/core</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/vxl/v3p/netlib</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/vxl/vcl</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/vxl/core</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/gdcm/Source/Common</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/gdcm/Source/DataStructureAndEncodingDefinition</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/gdcm/Source/MediaStorageAndFileFormat</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/gdcm/Source/DataDictionary</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/gdcm/Source/Common</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Patented</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Review</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/openjpeg</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/openjpeg</Argument>
+			<Argument>-o</Argument>
+			<Argument>CMakeFiles/itkopenjpeg.dir/tcd.c.o</Argument>
+			<Argument>-c</Argument>
+			<Argument>/home/kitware/Dashboards/My Tests/Insight/Utilities/openjpeg/tcd.c</Argument>
+		</Command>
+
+		<!-- Result of command -->
+		<Result>
+			<StdOut></StdOut>
+			<StdErr>/home/kitware/Dashboards/My Tests/Insight/Utilities/openjpeg/tcd.c: In function 'tcd_dc_level_shift_decode':
+/home/kitware/Dashboards/My Tests/Insight/Utilities/openjpeg/tcd.c:1933: warning: implicit declaration of function 'lrintf'
+/home/kitware/Dashboards/My Tests/Insight/Utilities/openjpeg/tcd.c:1933: warning: incompatible implicit declaration of built-in function 'lrintf'</StdErr>
+			<ExitCondition>0</ExitCondition>
+		</Result>
+	</Failure>
+	<Failure type="Error">
+		<!-- Meta-information about the build action -->
+		<Action>
+			<TargetName>ITKCommonAJava</TargetName>
+			<Language>C++</Language>
+			<SourceFile>/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx</SourceFile>
+			<OutputFile>CMakeFiles/ITKCommonAJava.dir/wrap_itkBinaryBallStructuringElementJava.cxx.o</OutputFile>
+			<OutputType>object file</OutputType>
+		</Action>
+
+		<!-- Details of command -->
+		<Command>
+			<WorkingDirectory>/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA</WorkingDirectory>
+			<Argument>/usr/bin/g++-4.2</Argument>
+			<Argument>-DITKCommonAJava_EXPORTS</Argument>
+			<Argument>-DSWIG_GLOBAL</Argument>
+			<Argument>-ftemplate-depth-50</Argument>
+			<Argument>-Wall</Argument>
+			<Argument>-Wno-deprecated</Argument>
+			<Argument>-w</Argument>
+			<Argument>-g</Argument>
+			<Argument>-fPIC</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Algorithms</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/BasicFilters</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Common</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Numerics</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/IO</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Numerics/FEM</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Numerics/NeuralNetworks</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/SpatialObject</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/MetaIO</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/NrrdIO</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/NrrdIO</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/DICOMParser</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/DICOMParser</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/expat</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/expat</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/nifti/niftilib</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/nifti/znzlib</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/itkExtHdrs</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Numerics/Statistics</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/vxl/v3p/netlib</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/vxl/vcl</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/vxl/core</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/vxl/v3p/netlib</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/vxl/vcl</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/vxl/core</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/gdcm/Source/Common</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/gdcm/Source/DataStructureAndEncodingDefinition</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/gdcm/Source/MediaStorageAndFileFormat</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/gdcm/Source/DataDictionary</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/gdcm/Source/Common</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Patented</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Code/Review</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Utilities/openjpeg</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight-gcc42/Utilities/openjpeg</Argument>
+			<Argument>-I/usr/include/python2.5</Argument>
+			<Argument>-I/usr/include/tcl</Argument>
+			<Argument>-I/usr/lib/jvm/java-6-sun/include</Argument>
+			<Argument>-I/usr/lib/jvm/java-6-sun/include/linux</Argument>
+			<Argument>-I/home/kitware/Dashboards/My Tests/Insight/Wrapping/CSwig/CommonA</Argument>
+			<Argument>-o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkBinaryBallStructuringElementJava.cxx.o</Argument>
+			<Argument>-c</Argument>
+			<Argument>/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx</Argument>
+		</Command>
+
+		<!-- Result of command -->
+		<Result>
+			<StdOut></StdOut>
+			<StdErr>aaaa/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_new_1itkBinaryBallStructuringElementUC3_1_1SWIG_10(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:157: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:157: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:157: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:158: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:158: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:158: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:162: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:162: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:162: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:162: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:168: error: 'result' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:168: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:168: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:168: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:176: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:176: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:176: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_new_1itkBinaryBallStructuringElementUC3_1_1SWIG_11(JNIEnv*, _jclass*)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:183: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:183: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:183: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:188: error: 'result' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:188: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:188: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:188: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:196: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:196: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:196: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'void Java_InsightToolkit_itkBinaryBallStructuringElementJNI_itkBinaryBallStructuringElementUC3_1CreateStructuringElement(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:202: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:202: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:202: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:206: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:206: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:206: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:206: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'void Java_InsightToolkit_itkBinaryBallStructuringElementJNI_delete_1itkBinaryBallStructuringElementUC3(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:220: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:220: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:220: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:224: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:224: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:224: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:224: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:225: error: type '&lt;type error&gt;' argument given to 'delete', expected pointer
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_new_1itkBinaryBallStructuringElementUS3_1_1SWIG_10(JNIEnv*, _jclass*)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:232: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:232: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:232: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:237: error: 'result' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:237: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:237: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:237: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:245: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:245: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:245: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_new_1itkBinaryBallStructuringElementUS3_1_1SWIG_11(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:252: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:252: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:252: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:253: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:253: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:253: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:257: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:257: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:257: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:257: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:263: error: 'result' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:263: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:263: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:263: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:271: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:271: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:271: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'void Java_InsightToolkit_itkBinaryBallStructuringElementJNI_itkBinaryBallStructuringElementUS3_1CreateStructuringElement(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:277: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:277: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:277: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:281: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:281: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:281: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:281: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'void Java_InsightToolkit_itkBinaryBallStructuringElementJNI_delete_1itkBinaryBallStructuringElementUS3(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:295: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:295: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:295: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:299: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:299: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:299: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:299: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:300: error: type '&lt;type error&gt;' argument given to 'delete', expected pointer
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_new_1itkBinaryBallStructuringElementF3_1_1SWIG_10(JNIEnv*, _jclass*)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:307: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:307: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:307: error: expected `;' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:312: error: 'result' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:312: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:312: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:312: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:320: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:320: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:320: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_new_1itkBinaryBallStructuringElementF3_1_1SWIG_11(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:327: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:327: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:327: error: expected `;' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:328: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:328: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:328: error: expected `;' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:332: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:332: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:332: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:332: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:338: error: 'result' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:338: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:338: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:338: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:346: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:346: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:346: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'void Java_InsightToolkit_itkBinaryBallStructuringElementJNI_itkBinaryBallStructuringElementF3_1CreateStructuringElement(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:352: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:352: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:352: error: expected `;' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:356: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:356: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:356: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:356: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'void Java_InsightToolkit_itkBinaryBallStructuringElementJNI_delete_1itkBinaryBallStructuringElementF3(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:370: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:370: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:370: error: expected `;' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:374: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:374: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:374: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:374: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:375: error: type '&lt;type error&gt;' argument given to 'delete', expected pointer
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_new_1itkBinaryBallStructuringElementUS2_1_1SWIG_10(JNIEnv*, _jclass*)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:382: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:382: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:382: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:387: error: 'result' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:387: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:387: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:387: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:395: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:395: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:395: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_new_1itkBinaryBallStructuringElementUS2_1_1SWIG_11(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:402: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:402: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:402: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:403: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:403: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:403: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:407: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:407: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:407: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:407: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:413: error: 'result' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:413: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:413: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:413: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:421: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:421: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:421: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'void Java_InsightToolkit_itkBinaryBallStructuringElementJNI_itkBinaryBallStructuringElementUS2_1CreateStructuringElement(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:427: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:427: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:427: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:431: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:431: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:431: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:431: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'void Java_InsightToolkit_itkBinaryBallStructuringElementJNI_delete_1itkBinaryBallStructuringElementUS2(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:445: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:445: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:445: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:449: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:449: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:449: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:449: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:450: error: type '&lt;type error&gt;' argument given to 'delete', expected pointer
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_new_1itkBinaryBallStructuringElementF2_1_1SWIG_10(JNIEnv*, _jclass*)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:457: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:457: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:457: error: expected `;' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:462: error: 'result' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:462: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:462: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:462: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:470: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:470: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:470: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_new_1itkBinaryBallStructuringElementF2_1_1SWIG_11(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:477: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:477: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:477: error: expected `;' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:478: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:478: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:478: error: expected `;' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:482: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:482: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:482: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:482: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:488: error: 'result' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:488: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:488: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:488: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:496: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:496: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:496: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'void Java_InsightToolkit_itkBinaryBallStructuringElementJNI_itkBinaryBallStructuringElementF2_1CreateStructuringElement(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:502: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:502: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:502: error: expected `;' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:506: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:506: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:506: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:506: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'void Java_InsightToolkit_itkBinaryBallStructuringElementJNI_delete_1itkBinaryBallStructuringElementF2(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:520: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:520: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:520: error: expected `;' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:524: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:524: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:524: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:524: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:525: error: type '&lt;type error&gt;' argument given to 'delete', expected pointer
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_new_1itkBinaryBallStructuringElementUC2_1_1SWIG_10(JNIEnv*, _jclass*)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:532: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:532: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:532: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:537: error: 'result' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:537: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:537: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:537: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:545: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:545: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:545: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_new_1itkBinaryBallStructuringElementUC2_1_1SWIG_11(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:552: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:552: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:552: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:553: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:553: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:553: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:557: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:557: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:557: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:557: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:563: error: 'result' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:563: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:563: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:563: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:571: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:571: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:571: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'void Java_InsightToolkit_itkBinaryBallStructuringElementJNI_itkBinaryBallStructuringElementUC2_1CreateStructuringElement(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:577: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:577: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:577: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:581: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:581: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:581: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:581: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'void Java_InsightToolkit_itkBinaryBallStructuringElementJNI_delete_1itkBinaryBallStructuringElementUC2(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:595: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:595: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:595: error: expected `;' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:599: error: 'arg1' was not declared in this scope
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:599: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:599: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:599: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:600: error: type '&lt;type error&gt;' argument given to 'delete', expected pointer
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_SWIGitkBinaryBallStructuringElementUC3ToitkNeighborhoodUC3(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:609: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:609: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:609: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_SWIGitkBinaryBallStructuringElementUS3ToitkNeighborhoodUS3(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:617: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:617: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:617: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_SWIGitkBinaryBallStructuringElementF3ToitkNeighborhoodF3(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:625: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:625: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:625: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_SWIGitkBinaryBallStructuringElementUS2ToitkNeighborhoodUS2(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:633: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:633: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:633: error: expected `)' before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_SWIGitkBinaryBallStructuringElementF2ToitkNeighborhoodF2(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:641: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:641: error: expected primary-expression before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:641: error: expected `)' before 'float'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx: In function 'jlong Java_InsightToolkit_itkBinaryBallStructuringElementJNI_SWIGitkBinaryBallStructuringElementUC2ToitkNeighborhoodUC2(JNIEnv*, _jclass*, jlong)':
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:649: error: 'itk' has not been declared
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:649: error: expected primary-expression before 'unsigned'
+/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA/wrap_itkBinaryBallStructuringElementJava.cxx:649: error: expected `)' before 'unsigned'</StdErr>
+			<ExitCondition>1</ExitCondition>
+		</Result>
+	</Failure>
+	<Failure type="Error">
+		<!-- Meta-information about the build action -->
+		<Action>
+			<TargetName>ITKCommonAJava</TargetName>
+			<Language>C++</Language>
+			<OutputFile>../../../bin/libITKCommonAJava.so.4.0.0</OutputFile>
+			<OutputType>module library</OutputType>
+		</Action>
+
+		<!-- Details of command -->
+		<Command>
+			<WorkingDirectory>/home/kitware/Dashboards/My Tests/Insight-gcc42/Wrapping/CSwig/CommonA</WorkingDirectory>
+			<Argument>/usr/bin/g++-4.2</Argument>
+			<Argument>-fPIC</Argument>
+			<Argument>-ftemplate-depth-50</Argument>
+			<Argument>-Wall</Argument>
+			<Argument>-Wno-deprecated</Argument>
+			<Argument>-w</Argument>
+			<Argument>-g</Argument>
+			<Argument>-shared</Argument>
+			<Argument>-Wl,-soname,libITKCommonAJava.so.4.0</Argument>
+			<Argument>-o</Argument>
+			<Argument>../../../bin/libITKCommonAJava.so.4.0.0</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_ITKCommonBaseJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_ITKInterpolatorsJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_ITKRegionsJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_SwigExtrasJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkArrayJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkBinaryBallStructuringElementJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkContinuousIndexJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkDenseFiniteDifferenceImageFilter_2DJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkDenseFiniteDifferenceImageFilter_3DJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkDifferenceImageFilterJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkEventObjectJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkFiniteDifferenceFunctionJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkFiniteDifferenceImageFilter_2DJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkFiniteDifferenceImageFilter_3DJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkFixedArrayJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkFunctionBaseJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkImage_2DJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkImage_3DJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkImageFunctionJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkImageConstIteratorJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkImageRegionIteratorJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkImageRegionConstIteratorJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkImageSourceJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkImageToImageFilter_2DJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkImageToImageFilter_3DJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkInPlaceImageFilter_AJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkInPlaceImageFilter_BJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkIndexJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkLevelSetJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkNeighborhoodJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkPointJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkSizeJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_itkVectorJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/wrap_ITKCommonAJavaJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/SwigExtras_wrapJava.cxx.o</Argument>
+			<Argument>CMakeFiles/ITKCommonAJava.dir/itkStringStream.cxx.o</Argument>
+			<Argument>../../../bin/libITKCommon.so.4.0.0</Argument>
+			<Argument>../../../bin/libitkvnl_inst.so.4.0.0</Argument>
+			<Argument>../../../bin/libitkvnl_algo.so.4.0.0</Argument>
+			<Argument>../../../bin/libitkv3p_netlib.so.4.0.0</Argument>
+			<Argument>../../../bin/libitkvnl.so.4.0.0</Argument>
+			<Argument>../../../bin/libitkvcl.so.4.0.0</Argument>
+			<Argument>../../../bin/libitkv3p_lsqr.so.4.0.0</Argument>
+			<Argument>-lm</Argument>
+			<Argument>../../../bin/libitksys.so.4.0.0</Argument>
+			<Argument>-lpthread</Argument>
+			<Argument>-ldl</Argument>
+			<Argument>-lm</Argument>
+			<Argument>-Wl,-rpath,/home/kitware/Dashboards/My Tests/Insight-gcc42/bin:</Argument>
+		</Command>
+
+		<!-- Result of command -->
+		<Result>
+			<StdOut></StdOut>
+			<StdErr>g++-4.2: CMakeFiles/ITKCommonAJava.dir/wrap_itkBinaryBallStructuringElementJava.cxx.o: No such file or directory</StdErr>
+			<ExitCondition>1</ExitCondition>
+		</Result>
+	</Failure>
+	<Log Encoding="base64" Compression="/bin/gzip">
+	</Log>
+	<EndDateTime>Jan 02 04:38 EST</EndDateTime>
+	<EndBuildTime>1293961123</EndBuildTime>
+<ElapsedMinutes>267.3</ElapsedMinutes></Build>
+</Site>

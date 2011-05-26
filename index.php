@@ -460,6 +460,7 @@ if ($faqconfig->get('main.enableRewriteRules')) {
         'msgHelp'             => '<a href="' . $systemUri . 'help.html">'.$PMF_LANG["msgHelp"].'</a>',
         "msgContact"          => '<a href="' . $systemUri . 'contact.html">'.$PMF_LANG["msgContact"].'</a>',
         "backToHome"          => '<a href="' . $systemUri . 'index.html">Home</a>',
+        "adminPage"          => '<a href="' . $systemUri . 'admin">Home</a>',
         "allCategories"       => '<a href="' . $systemUri . 'showcat.html">'.$PMF_LANG["msgShowAllCategories"].'</a>',
         'showInstantResponse' => '<a href="' . $systemUri . 'instantresponse.html">'.$PMF_LANG['msgInstantResponse'].'</a>',
         'showSitemap'         => '<a href="' . $systemUri . 'sitemap/A/'.$LANGCODE.'.html">'.$PMF_LANG['msgSitemap'].'</a>',
@@ -475,6 +476,7 @@ if ($faqconfig->get('main.enableRewriteRules')) {
         "msgContact"          => '<a href="index.php?'.$sids.'action=contact">'.$PMF_LANG["msgContact"].'</a>',
         "allCategories"       => '<a href="index.php?'.$sids.'action=show">'.$PMF_LANG["msgShowAllCategories"].'</a>',
         "backToHome"          => '<a href="index.php?'.$sids.'">Home</a>',
+      "adminPage"          => '<a style="font-size:10px" href="' . $systemUri . 'admin">Admin</a>',
         'showInstantResponse' => '<a href="index.php?'.$sids.'action=instantresponse">'.$PMF_LANG['msgInstantResponse'].'</a>',
         'showSitemap'         => '<a href="index.php?'.$sids.'action=sitemap&amp;lang='.$LANGCODE.'">'.$PMF_LANG['msgSitemap'].'</a>',
         'opensearch'          => $systemUri . 'opensearch.php');

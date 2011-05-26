@@ -159,6 +159,9 @@ if ($action == 'logout' && $auth) {
     $user = null;
     $auth = null;
 }
+if ($action == 'logout' ) {
+   header("Location: ".str_replace('admin/index.php', '', $_SERVER['SCRIPT_NAME']).'');
+}
 
 //
 // Get current admin user and group id - default: -1
@@ -339,34 +342,7 @@ if (isset($auth) && in_array(true, $permission)) {
         <dd><?php print $PMF_TABLE_INFO[SQLPREFIX."faqquestions"]; ?></dd>
     </dl>
     
-    <?php printf('<h2>%s</h2>', $PMF_LANG['ad_online_info']); ?>
-    <div id="versioncheck">
-<?php
-        $version = PMF_Filter::filterInput(INPUT_POST, 'param', FILTER_SANITIZE_STRING);        
-        if (!is_null($version) && $version == 'version') {
-            $json   = file_get_contents('http://www.phpmyfaq.de/json/version.php');
-            $result = json_decode($json);
-            if ($result instanceof stdClass) {
-                printf('<p>%s <a href="http://www.phpmyfaq.de" target="_blank">www.phpmyfaq.de</a>: <strong>phpMyFAQ %s</strong>', 
-                    $PMF_LANG['ad_xmlrpc_latest'], 
-                    $result->stable);
-                // Installed phpMyFAQ version is outdated
-                if (-1 == version_compare($faqconfig->get('main.currentVersion'), $result->stable)) {
-                    print '<br /><a href="?action=upgrade">' . $PMF_LANG['ad_you_should_update'] - '</a>';
-                }
-                print '</p>';
-            }
-        } else {
-?>
-    <form action="index.php" method="post">
-    <input type="hidden" name="param" value="version" />
-    <input class="submit" type="submit" value="<?php print $PMF_LANG["ad_xmlrpc_button"]; ?>" />
-    </form>
-<?php
-        }
-?>
-    <br />
-    </div>
+
 
     <?php printf('<h2>%s</h2>', $PMF_LANG['ad_system_info']); ?>
     <dl>
@@ -402,7 +378,7 @@ if (isset($auth) && in_array(true, $permission)) {
 ?>
     <div id="main">
         <div class="centerlogin">
-        <form action="index.php" method="post">
+        <form action="" method="post">
         <fieldset class="login">
             <legend class="login">phpMyFAQ Login</legend>
 <?php

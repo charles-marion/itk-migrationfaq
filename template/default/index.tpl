@@ -46,7 +46,6 @@
                 <div id="categories">
                     <ul>
                         <li class="home">{backToHome}</li>
-                        <li>{allCategories}</li>
                         {showCategories}
                         <li>{showSitemap}</li>
                     </ul>
@@ -92,7 +91,8 @@
 
 <div class="clearing"></div>
 <div id="footer" class="footer">
-    <p id="copyrightnote">{copyright}</p>
+    <p id="copyrightnote">{copyright}</p>             {adminPage}
+
 </div>
 
 {debugMessages}

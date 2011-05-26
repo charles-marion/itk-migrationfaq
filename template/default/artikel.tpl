@@ -2,6 +2,13 @@
 <div id="solution_id">ID #{solution_id}</div>
 <h2>{writeThema}</h2>
 
+    <div id="action" style='float:right;position:relative;top:-25px;'>
+    <a href="{link_digg}" target="_blank"><img style='opacity:0.4;filter:alpha(opacity=40)' src="images/digg.png" alt="{writeDiggMsgTag}" title="{writeDiggMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
+    <a href="{link_facebook}" target="_blank"><img style='opacity:0.4;filter:alpha(opacity=40)'  src="images/facebook.png" alt="{writeFacebookMsgTag}" title="{writeFacebookMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
+    <a href="javascript:window.print();"><img style='opacity:0.4;filter:alpha(opacity=40)'  src="images/print.gif" alt="{writePrintMsgTag}" title="{writePrintMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
+    <a href="{link_email}"><img style='opacity:0.4;filter:alpha(opacity=40)'  src="images/email.gif" alt="{writeSend2FriendMsgTag}" title="{writeSend2FriendMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
+    <a target="_blank" href="{link_pdf}"><img style='opacity:0.4;filter:alpha(opacity=40)'  src="images/pdf.gif" alt="{writePDFTag}" title="{writePDFTag}" width="16" height="16" border="0" class="recordIcons" /></a>
+    </div>
     <!-- Article -->
     <div id="article_content">{writeContent}</div>
     <!-- /Article -->
@@ -13,40 +20,14 @@
 
 
     <!-- Article Info -->
-    <p><span id="popularity" style="display: none;">{writePopularity}</span>{writeDateMsg}<br /></p>
+    <p style="float:right;color:grey;font-size:10px;"><span id="popularity" style="float:right;display: none;">{writePopularity}</span>{writeDateMsg}<br />
+{editPost}</p>
     <!-- /Article Info -->
 
-    {switchLanguage}
-    <div id="action">
-    <a href="{link_digg}" target="_blank"><img src="images/digg.png" alt="{writeDiggMsgTag}" title="{writeDiggMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
-    <a href="{link_facebook}" target="_blank"><img src="images/facebook.png" alt="{writeFacebookMsgTag}" title="{writeFacebookMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
-    <a href="javascript:window.print();"><img src="images/print.gif" alt="{writePrintMsgTag}" title="{writePrintMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
-    <a href="{link_email}"><img src="images/email.gif" alt="{writeSend2FriendMsgTag}" title="{writeSend2FriendMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
-    <a target="_blank" href="{link_pdf}"><img src="images/pdf.gif" alt="{writePDFTag}" title="{writePDFTag}" width="16" height="16" border="0" class="recordIcons" /></a>
-    </div>
 
 
 
-    <!-- Voting Form -->
-    <div id="voting">
-    <form action="{saveVotingPATH}" method="post" style="display: inline;">
-    <fieldset>
-    <legend>{msgVoteUseability}</legend>
-    <input type="hidden" name="artikel" value="{saveVotingID}" />
-    <p align="center"><strong>{msgAverageVote}</strong> {printVotings}</p>
-    <p align="center">{msgVoteBad}
-    <input class="radio" type="radio" name="vote" value="1" /> 1
-    <input class="radio" type="radio" name="vote" value="2" /> 2
-    <input class="radio" type="radio" name="vote" value="3" /> 3
-    <input class="radio" type="radio" name="vote" value="4" /> 4
-    <input class="radio" type="radio" name="vote" value="5" /> 5
-    {msgVoteGood}<br />
-    <input class="submit" type="submit" name="submit" value="{msgVoteSubmit}" />
-    </p>
-    </fieldset>
-    </form>
-    </div>
-    <!-- /Voting Form -->
+
 
     <p>{writeCommentMsg}</p>
 
@@ -83,6 +64,10 @@
     <!-- /Comment Form -->
 
     {writeComments}
+
+
+
+
 
     <script type="text/javascript" src="inc/js/syntaxhighlighter/scripts/shCore.js"></script>
     <script type="text/javascript" src="inc/js/syntaxhighlighter/scripts/shBrushBash.js"></script>

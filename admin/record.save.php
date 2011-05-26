@@ -115,8 +115,8 @@ if ($permission['editbt']) {
     <!--
     $(document).ready(function(){
         setTimeout(function() {
-            window.location = "index.php?action=view";
-            }, 5000);
+            window.location = "../index.php?action=artikel&id=<?php echo $record_id?>";
+            }, 1000);
         });
     //-->
     </script>       

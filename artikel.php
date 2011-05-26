@@ -309,11 +309,14 @@ if($faq_Model->getErrorRecord($_GET['id'], 0)!==false)
     <div style='display:none;' class='loading'><img src='images/loading.gif'/></div>
     <div id='resultAjax'></div>";
   }
+  
+  $systemUri      = PMF_Link::getSystemUri('index.php');
 
 
 // Set the template variables
 $tpl->processTemplate ("writeContent", array(
     'writeRubrik'                   => $categoryName.'<br />',
+    'editPost'                      => '<a style="color:grey;float;" href="' . $systemUri . 'admin/?action=editentry&id='.$faq->faqRecord['id'].'&lang=en">Edit</a>',
     'solution_id'                   => $faq->faqRecord['solution_id'],
     'writeThema'                    => $thema,
     'writeArticleCategoryHeader'    => $PMF_LANG['msgArticleCategories'],

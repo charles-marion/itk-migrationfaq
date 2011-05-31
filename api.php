@@ -180,6 +180,10 @@ switch ($action)
         {
         $isCode = false;
         }
+      if(strpos($lineContent, "</OldCode>") !==false || strpos($lineContent, "</NewCode>") !==false)
+        {
+        $isCode = false;
+        }
         
       if($isCode)
         {
@@ -190,6 +194,10 @@ switch ($action)
         $xmlContent .= $lineContent;
         }
       if(strpos($lineContent, "<Old>") !==false || strpos($lineContent, "<New>") !==false || strpos($lineContent, "<Description>") !==false)
+        {
+        $isCode = true;
+        }
+      if(strpos($lineContent, "<OldCode>") !==false || strpos($lineContent, "<NewCode>") !==false)
         {
         $isCode = true;
         }
@@ -205,6 +213,15 @@ switch ($action)
       $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xml->SampleCode[0]->Old[0])).":code:";
       $content.="<h3>New API Sample Code:</h3>";
       $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xml->SampleCode[0]->New[0])).":code:";
+      }
+      
+    $tmp = (string) $xml->SampleCode[0]->OldCode[0];
+    if(!empty($tmp))
+      {      
+      $content.="<h3>Broken API Sample Code:</h3>";
+      $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xml->SampleCode[0]->OldCode[0])).":code:";
+      $content.="<h3>New API Sample Code:</h3>";
+      $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xml->SampleCode[0]->NewCode[0])).":code:";
       }
       
     $content.="<h3>Gerrit:</h3>";

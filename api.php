@@ -163,7 +163,34 @@ switch ($action)
       echo "Unable to find the xml file.";
       exit;
       }
-    $xml = simplexml_load_file($xmlFile);
+    
+    $content = file_get_contents($xmlFile);
+    $lines = file($xmlFile);
+    
+    $xmlContent = '';
+    
+    $isCode = false;
+    foreach ($lines as $lineNumber => $lineContent)
+      {
+      if(strpos($lineContent, "</Old>") !==false || strpos($lineContent, "</New>") !==false || strpos($lineContent, "</Description>") !==false)
+        {
+        $isCode = false;
+        }
+        
+      if($isCode)
+        {
+        $xmlContent .= htmlentities($lineContent);
+        }
+      else
+        {
+        $xmlContent .= $lineContent;
+        }
+      if(strpos($lineContent, "<Old>") !==false || strpos($lineContent, "<New>") !==false || strpos($lineContent, "<Description>") !==false)
+        {
+        $isCode = true;
+        }
+      }
+    $xml = simplexml_load_string($xmlContent);
 
     $tmp = (string) $xml->SampleCode[0]->Old[0];
     $content = '';

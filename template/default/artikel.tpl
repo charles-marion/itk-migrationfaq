@@ -3,11 +3,11 @@
 <h2>{writeThema}</h2>
 
     <div id="action" style='float:right;position:relative;top:-25px;'>
-    <a href="{link_digg}" target="_blank"><img style='opacity:0.4;filter:alpha(opacity=40)' src="images/digg.png" alt="{writeDiggMsgTag}" title="{writeDiggMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
-    <a href="{link_facebook}" target="_blank"><img style='opacity:0.4;filter:alpha(opacity=40)'  src="images/facebook.png" alt="{writeFacebookMsgTag}" title="{writeFacebookMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
-    <a href="javascript:window.print();"><img style='opacity:0.4;filter:alpha(opacity=40)'  src="images/print.gif" alt="{writePrintMsgTag}" title="{writePrintMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
-    <a href="{link_email}"><img style='opacity:0.4;filter:alpha(opacity=40)'  src="images/email.gif" alt="{writeSend2FriendMsgTag}" title="{writeSend2FriendMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
-    <a target="_blank" href="{link_pdf}"><img style='opacity:0.4;filter:alpha(opacity=40)'  src="images/pdf.gif" alt="{writePDFTag}" title="{writePDFTag}" width="16" height="16" border="0" class="recordIcons" /></a>
+    <a href="{link_digg}" target="_blank"><img  src="images/digg.png" alt="{writeDiggMsgTag}" title="{writeDiggMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
+    <a href="{link_facebook}" target="_blank"><img   src="images/facebook.png" alt="{writeFacebookMsgTag}" title="{writeFacebookMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
+    <a href="javascript:window.print();"><img   src="images/print.gif" alt="{writePrintMsgTag}" title="{writePrintMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
+    <a href="{link_email}"><img   src="images/email.gif" alt="{writeSend2FriendMsgTag}" title="{writeSend2FriendMsgTag}" width="16" height="16" border="0" class="recordIcons" /></a> 
+    <a target="_blank" href="{link_pdf}"><img   src="images/pdf.gif" alt="{writePDFTag}" title="{writePDFTag}" width="16" height="16" border="0" class="recordIcons" /></a>
     </div>
     <!-- Article -->
     <div id="article_content">{writeContent}</div>

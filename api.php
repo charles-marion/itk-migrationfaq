@@ -102,13 +102,17 @@ switch ($action)
     break;
   case 'addItkChange':
     $path = $_GET['path']; //exemplte : http://review.source.kitware.com/cat/224%2C1%2CMigration/DecoupleNumericTraitsFromContainers.xml
-
+    if(isset($_GET['new']))
+      {
+      $new = $_GET['new'];
+      }
     $tmp=explode(",", $path);
     $tmps=explode("/", $tmp[0]);
     foreach($tmps as $tmp)
       {
       $change=$tmp;
-      }    
+      }
+     
     $gerrit_url="http://review.source.kitware.com/#change,".$change;
     $category = $_GET['category'];
     if(!is_numeric($category))
@@ -275,13 +279,20 @@ switch ($action)
     $data['thema']=$xml->Title[0];
     $data['content']=$content;
     $data['date']=date('YmdHis');
-    $data['linkState']=$change;
+    if(isset($new))
+      {
+      $data['linkState']=null;
+      }
+    else
+      {
+      $data['linkState']=$change;
+      }
     $data['dateStart']='00000000000000';
     $data['dateEnd']='99991231235959';
     $data['linkDateCheck']=0;
     $data['keywords']='';
 
-    if($oldRecord!=null)
+    if($oldRecord!=null && !isset($new))
       {
       $data['revision_id']=0;
       $data['id']=$oldRecord;

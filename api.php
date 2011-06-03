@@ -207,21 +207,31 @@ switch ($action)
     $tmp = (string) $xml->SampleCode[0]->Old[0];
     $content = '';
     $content="<p>".nl2br($xml->Description[0])."</p>";
-    if(!empty($tmp))
-      {      
-      $content.="<h3>Broken API Sample Code:</h3>";
-      $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xml->SampleCode[0]->Old[0])).":code:";
-      $content.="<h3>New API Sample Code:</h3>";
-      $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xml->SampleCode[0]->New[0])).":code:";
-      }
-      
-    $tmp = (string) $xml->SampleCode[0]->OldCode[0];
-    if(!empty($tmp))
-      {      
-      $content.="<h3>Broken API Sample Code:</h3>";
-      $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xml->SampleCode[0]->OldCode[0])).":code:";
-      $content.="<h3>New API Sample Code:</h3>";
-      $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xml->SampleCode[0]->NewCode[0])).":code:";
+    
+    $xmlNode = $xml->xpath('SampleCode');
+
+    foreach($xmlNode as $key => $xmlChild)
+      {
+      if($key != 0)
+        {
+        $content.="<hr style ='width: 400px;margin-left: 0px;'/>";
+        }
+      $tmp = (string) $xmlChild[0]->Old[0];
+      if(!empty($tmp))
+        {
+        $content.="<h3>Broken API Sample Code:</h3>";
+        $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xmlChild[0]->Old[0])).":code:";
+        $content.="<h3>New API Sample Code:</h3>";
+        $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xmlChild[0]->New[0])).":code:";
+        }
+      $tmp = (string) $xmlChild[0]->OldCode[0];
+      if(!empty($tmp))
+        {      
+        $content.="<h3>Broken API Sample Code:</h3>";
+        $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xmlChild[0]->OldCode[0])).":code:";
+        $content.="<h3>New API Sample Code:</h3>";
+        $content.=":code:".str_replace("\n", "<br/>", htmlspecialchars($xmlChild[0]->NewCode[0])).":code:";
+        }
       }
       
     $content.="<h3>Gerrit:</h3>";

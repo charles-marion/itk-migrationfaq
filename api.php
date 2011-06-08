@@ -71,7 +71,6 @@ switch ($action)
   {
   case 'addItkErrors':
     require_once 'inc/BuildParser.php';
-    $post = $_GET['post'];
     $key = $_GET['key'];
     if($key!="SgBF7Teem2")
       {
@@ -80,7 +79,7 @@ switch ($action)
       }
 
     $file_path='php://input';
-   // $file_path='CDashFile/Build2.xml';
+   //$file_path='CDashFile/Build2.xml';
     if(!isset($_GET['post']))
       {
       $faq = new PMF_Faq(null,null);
@@ -90,6 +89,10 @@ switch ($action)
         exit;
         }
       $post=$faq->getIdFromChange($_GET['change']);
+      }
+    else
+      {
+      $post = $_GET['post'];
       }
     if(!is_numeric($post)||$post==null)
       {
@@ -176,33 +179,43 @@ switch ($action)
     $isCode = false;
     foreach ($lines as $lineNumber => $lineContent)
       {
-      if(strpos($lineContent, "</Old>") !==false || strpos($lineContent, "</New>") !==false || strpos($lineContent, "</Description>") !==false)
-        {
-        $isCode = false;
-        }
-      if(strpos($lineContent, "</OldCode>") !==false || strpos($lineContent, "</NewCode>") !==false)
-        {
-        $isCode = false;
-        }
-        
-      if($isCode)
-        {
-        $xmlContent .= htmlentities($lineContent);
-        }
-      else
-        {
-        $xmlContent .= $lineContent;
-        }
-      if(strpos($lineContent, "<Old>") !==false || strpos($lineContent, "<New>") !==false || strpos($lineContent, "<Description>") !==false)
-        {
-        $isCode = true;
-        }
-      if(strpos($lineContent, "<OldCode>") !==false || strpos($lineContent, "<NewCode>") !==false)
-        {
-        $isCode = true;
-        }
+      $xmlContent .= $lineContent;
       }
-    $xml = simplexml_load_string($xmlContent);
+    
+    $xml = @simplexml_load_string($xmlContent);
+    if($xml == false)
+      {
+      $isCode = false;
+      foreach ($lines as $lineNumber => $lineContent)
+        {
+        if(strpos($lineContent, "</Old>") !==false || strpos($lineContent, "</New>") !==false || strpos($lineContent, "</Description>") !==false)
+          {
+          $isCode = false;
+          }
+        if(strpos($lineContent, "</OldCode>") !==false || strpos($lineContent, "</NewCode>") !==false)
+          {
+          $isCode = false;
+          }
+
+        if($isCode)
+          {
+          $xmlContent .= htmlentities($lineContent);
+          }
+        else
+          {
+          $xmlContent .= $lineContent;
+          }
+        if(strpos($lineContent, "<Old>") !==false || strpos($lineContent, "<New>") !==false || strpos($lineContent, "<Description>") !==false)
+          {
+          $isCode = true;
+          }
+        if(strpos($lineContent, "<OldCode>") !==false || strpos($lineContent, "<NewCode>") !==false)
+          {
+          $isCode = true;
+          }
+        }
+      $xml = simplexml_load_string($xmlContent);
+      }
 
     $tmp = (string) $xml->SampleCode[0]->Old[0];
     $content = '';

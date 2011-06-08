@@ -294,7 +294,7 @@ if($faq_Model->getErrorRecord($_GET['id'], 0)!==false)
         $('.loading').show();
         $('#resultAjax').html('');
         $.ajax({
-          url: 'index.php?action=errors&id=".$_GET['id']."',
+          url: 'index.php?action=errors&ajax=true&id=".$_GET['id']."',
           success: function(data) {
               $('#resultAjax').html(data);
               $('.loading').hide();

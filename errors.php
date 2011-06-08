@@ -1,17 +1,32 @@
 <?php
-echo '<html>';
-echo '<body>';
-echo "<a class='returnArtikel' href='index.php?action=artikel&id=".$_GET['id']."'>Voir post correspondant</a>";
+$body = '';
 $faq = new PMF_Faq(null,null);
 $i=0;
 $result=$faq->getErrorRecord($_GET['id'], $i);
 while($result!=false)
   {
-  echo "<p>".$result['header']."</p>";
-  echo "<pre>".$result['content'].'</pre>';
+  $body .= "<p>".$result['header']."</p>";
+  $body .= "<pre>".$result['content'].'</pre>';
   $i++;
   $result=$faq->getErrorRecord($_GET['id'], $i);
   }
-echo '</body>';
-exit();
+  
+if(isset($_GET['ajax']))
+  {
+  echo '<html>';
+  echo '<body>';
+
+  echo $body;
+  echo '</body>';
+  exit();
+  }
+else
+  {
+  $body = "<a class='returnArtikel' href='index.php?action=artikel&id=".$_GET['id']."'>See related migration page</a>" .$body;
+// Set the template variables
+  $tpl->processTemplate ("writeContent", array(
+    'writeContent'                  => $body,
+   ));
+  $tpl->includeTemplate('writeContent', 'index');
+  }
 ?>

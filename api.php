@@ -183,6 +183,7 @@ switch ($action)
       }
     
     $xml = @simplexml_load_string($xmlContent);
+    $xmlContent = '';
     if($xml == false)
       {
       $isCode = false;

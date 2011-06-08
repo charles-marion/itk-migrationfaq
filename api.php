@@ -71,7 +71,6 @@ switch ($action)
   {
   case 'addItkErrors':
     require_once 'inc/BuildParser.php';
-    $post = $_GET['post'];
     $key = $_GET['key'];
     if($key!="SgBF7Teem2")
       {
@@ -80,7 +79,7 @@ switch ($action)
       }
 
     $file_path='php://input';
-   // $file_path='CDashFile/Build2.xml';
+   //$file_path='CDashFile/Build2.xml';
     if(!isset($_GET['post']))
       {
       $faq = new PMF_Faq(null,null);
@@ -90,6 +89,10 @@ switch ($action)
         exit;
         }
       $post=$faq->getIdFromChange($_GET['change']);
+      }
+    else
+      {
+      $post = $_GET['post'];
       }
     if(!is_numeric($post)||$post==null)
       {

@@ -1,3 +1,5 @@
+
+
 CREATE TABLE  `faqerrors` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `id_data` INT NOT NULL ,

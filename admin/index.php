@@ -213,6 +213,7 @@ if (isset($auth) && in_array(true, $permission)) {
             case 'comment':
             	require 'ajax.comment.php';
             	break;
+
             	
             // Records
             case 'records':	
@@ -264,6 +265,7 @@ if (isset($auth) && in_array(true, $permission)) {
             case "editentry":
             case 'copyentry':
             case "editpreview":             require_once 'record.edit.php'; break;
+            case "errors":                   require_once 'errors.php'; break;
             case "insertentry":             require_once 'record.add.php'; break;
             case "saveentry":               require_once 'record.save.php'; break;
             case "delentry":                require_once 'record.delete.php'; break;

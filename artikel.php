@@ -282,8 +282,11 @@ if (count($arrLanguage) < count(PMF_Language::getAvailableLanguages())) {
         </form>';
 }
 $faq_Model = new PMF_Faq(null,null);
+$hasErrors = false;
+
 if($faq_Model->getErrorRecord($_GET['id'], 0)!==false)
   {
+  $hasErrors = true;
   $content.="
   <script>
 
@@ -317,6 +320,7 @@ if($faq_Model->getErrorRecord($_GET['id'], 0)!==false)
 $tpl->processTemplate ("writeContent", array(
     'writeRubrik'                   => $categoryName.'<br />',
     'editPost'                      => '<a style="color:grey;float;" href="' . $systemUri . 'admin/?action=editentry&id='.$faq->faqRecord['id'].'&lang=en">Edit</a>',
+    'editErrorsPost'                => ($hasErrors)?'<a style="color:grey;float;" href="' . $systemUri . 'admin/?action=errors&id='.$_GET['id'].'">Edit Errors</a>':'',
     'solution_id'                   => $faq->faqRecord['solution_id'],
     'writeThema'                    => $thema,
     'writeArticleCategoryHeader'    => $PMF_LANG['msgArticleCategories'],

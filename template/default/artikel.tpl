@@ -21,13 +21,8 @@
 
     <!-- Article Info -->
     <p style="float:right;color:grey;font-size:10px;"><span id="popularity" style="float:right;display: none;">{writePopularity}</span>{writeDateMsg}<br />
-{editPost}</p>
+{editPost} {editErrorsPost}</p>
     <!-- /Article Info -->
-
-
-
-
-
 
     <p>{writeCommentMsg}</p>
 

@@ -825,21 +825,73 @@ class PMF_Faq
         {
         return false;
         }
+        
+      $record_id = $this->db->nextID(SQLPREFIX.'faqerrors', 'id');
         // Add new entry
         $query = sprintf(
             "INSERT INTO
                 faqerrors
-                (id_data,header,content,md5)
+                (id, header,content,md5)
             VALUES
-                (%d, '%s', '%s','%s')",
-            $data['id_data'],
+                ('%d','%s', '%s','%s')",
+            $record_id,
             $this->db->escape_string($data['header']),
             $this->db->escape_string($data['content']),
             md5($data['header'].$data['content']));
 
         $this->db->query($query);
+        
+        $query = sprintf(
+            "INSERT INTO
+                faqerrors2data
+                (id, id_data)
+            VALUES
+                (%d, '%d')",
+            $record_id,
+            $data['id_data']);
+
+        $this->db->query($query);
         return true;
     }
+    
+    /** remove and error*/
+    public function removeError($id, $id_data)
+      {
+      if($id == 'all')
+        {
+        $query = "DELETE FROM faqerrors2data where  id_data=$id_data";
+        $this->db->query($query);
+        }
+      else
+        {
+        if(!is_numeric($id)|| !is_numeric($id_data))
+          {
+          return ;
+          }
+        $query = "DELETE FROM faqerrors2data where id =$id and id_data=$id_data";
+        $this->db->query($query);
+        }
+      }
+      
+    /** remove and error*/
+    public function addError($id, $id_data)
+      {
+      if(!is_numeric($id)|| !is_numeric($id_data))
+        {
+        return ;
+        }
+      $query = sprintf(
+            "INSERT INTO
+                faqerrors2data
+                (id, id_data)
+            VALUES
+                (%d, '%d')",
+            $id,
+            $id_data);
+
+
+      $this->db->query($query);
+      }
 
 
             /**
@@ -876,12 +928,12 @@ class PMF_Faq
     public function getErrorRecord($id_data,$offset)
     {
         $query =
-            "SELECT
-                *
+            "SELECT DISTINCT
+                e.*
             FROM
-                faqerrors
+                faqerrors as e, faqerrors2data as e2
             WHERE
-                id_data=$id_data limit 1 offset $offset";
+                e2.id=e.id AND e2.id_data=$id_data limit 1 offset $offset";
 
         $result = $this->db->query($query);
 

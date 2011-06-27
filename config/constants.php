@@ -38,6 +38,8 @@
  */
 define('PMF_DATETIME_TIMEZONE_DEFAULT', 'Europe/Berlin');
 
+define('ITK_DIR', '/projects/Insight/WWW/InsightWeb/ITK-clone/ITK');
+
 /**
  * Timeout for the admin section, in minutes
  *

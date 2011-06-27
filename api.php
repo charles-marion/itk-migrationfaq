@@ -69,6 +69,37 @@ $result = array();
 // Handle actions
 switch ($action)
   {
+  case 'scanITKDir':
+    $category = $_GET['category'];
+    if(!is_numeric($category))
+      {
+      echo "Category parameter should be a number.";
+      exit();
+      }
+    $key = $_GET['key'];
+    if($key!="SgBF7Teem2")
+      {
+      echo "Key error.";
+      exit();
+      }
+    $fileCheck = dirname(__FILE__).'/tmp/lastITKCheck.txt';
+    $lastCheck = 0;
+    if(file_exists($fileCheck))
+      {
+      $lastCheck = strtotime(file_get_contents($fileCheck));
+      }
+    file_put_contents($fileCheck, date('c'));
+    
+    $dir = ITK_DIR.'/Documentation/Migration';
+    $dirFiles = scandir($dir);
+    foreach($dirFiles as $file)
+      {
+      if($file != '.' && $file != '..' && strpos($file, '.xml') !==false && filemtime($dir.'/'.$file) > $lastCheck)
+        {
+        addITKXmlFile($dir.'/'.$file, $category);
+        }
+      }
+    break;
   case 'addItkErrors':
     require_once 'inc/BuildParser.php';
     $key = $_GET['key'];
@@ -171,6 +202,55 @@ switch ($action)
       exit;
       }
     
+    $record_id = addITKXmlFile($xmlFile, $category);
+    $uri=explode('.',$_SERVER["REQUEST_URI"]);
+    echo"http://".$_SERVER["SERVER_NAME"].substr($uri[0], 0,  strrpos($uri[0], "/"))."/index.php?action=artikel&id=".$record_id;
+    exit;
+    break;
+  case 'getVersion':
+    $result = array('version' => $faqconfig->get('main.currentVersion'));
+    break;
+
+  case 'getApiVersion':
+    $result = array('apiVersion' => (int) $faqconfig->get('main.currentApiVersion'));
+    break;
+
+  case 'search':
+    $search = new PMF_Search($db, $Language);
+    $searchString = PMF_Filter::filterInput(INPUT_GET, 'q', FILTER_SANITIZE_STRIPPED);
+    $result = $search->search($searchString, false);
+    $url = $faqconfig->get('main.referenceURL') . '/index.php?action=artikel&cat=%d&id=%d&artlang=%s';
+
+    foreach ($result as &$data)
+      {
+      $data->answer = html_entity_decode(strip_tags($data->answer), ENT_COMPAT, 'utf-8');
+      $data->answer = PMF_Utils::makeShorterText($data->answer, 12);
+      $data->link = sprintf($url, $data->category_id, $data->id, $data->lang);
+      }
+    break;
+
+  case 'getCategories':
+    $category = new PMF_Category($current_user, $current_groups, true);
+    $result = $category->categories;
+    break;
+
+  case 'getFaqs':
+    $faq = new PMF_Faq($current_user, $current_groups);
+    $result = $faq->getAllRecordPerCategory($categoryId);
+    break;
+
+  case 'getFaq':
+    $faq = new PMF_Faq($current_user, $current_groups);
+    $faq->getRecord($recordId);
+    $result = $faq->faqRecord;
+    break;
+  }
+
+// print result as JSON
+print json_encode($result);
+
+function addITKXmlFile($xmlFile, $category)
+  {
     $content = file_get_contents($xmlFile);
     $lines = file($xmlFile);
     
@@ -248,12 +328,14 @@ switch ($action)
         }
       }
       
-    $content.="<h3>Gerrit:</h3>";
-    $content.="<p><a href='$gerrit_url'>$gerrit_url</a></p>";
-
-    $content.="<h3>Gerrit ChangeId:</h3>";
     $xmlNode = $xml->xpath('Gerrit-ChangeId');
-    $content.="<p>".$xmlNode[0][0]."</p>";
+    $gerrit_id = $xmlNode[0][0];
+    $content.="<h3>Gerrit:</h3>";
+    $gerrit_url="http://review.source.kitware.com/#q,".trim(str_replace('Change-Id:', '', $gerrit_id)).',n,z';
+    $content.="<p><a href='$gerrit_url'>$gerrit_url</a></p>";
+    $content.="<h3>Gerrit ChangeId:</h3>";
+    
+    $content.="<p>".$gerrit_id."</p>";
 
     $tmp = (string) $xml->FileList[0];
     if(!empty($tmp))
@@ -308,8 +390,15 @@ switch ($action)
 
     $faq = new PMF_Faq(null,null);
 
-    $oldRecord=$faq->getIdFromChange($change);
-
+    $filename = basename($xmlFile);
+        
+    if(strpos($filename, '_new-') !== false)
+      {
+      $filename = substr($filename, 0, strpos($filename, '_new-')).'.xml';
+      }
+    
+    
+    $oldRecord=$faq->getIdFromChange($filename);
 
     $data['lang']="en";
     $data['active']="yes";
@@ -326,7 +415,7 @@ switch ($action)
       }
     else
       {
-      $data['linkState']=$change;
+      $data['linkState']= $filename;
       }
     $data['dateStart']='00000000000000';
     $data['dateEnd']='99991231235959';
@@ -348,49 +437,5 @@ switch ($action)
       $faq->addCategoryRelations(array($category), $record_id, "en");
       $faq->db->query("INSERT INTO  ".SQLPREFIX."faqdata_user VALUES ('$record_id','-1')");
       }
-    $uri=explode('.',$_SERVER["REQUEST_URI"]);
-    echo"http://".$_SERVER["SERVER_NAME"].substr($uri[0], 0,  strrpos($uri[0], "/"))."/index.php?action=artikel&id=".$record_id;
-    exit;
-    break;
-  case 'getVersion':
-    $result = array('version' => $faqconfig->get('main.currentVersion'));
-    break;
-
-  case 'getApiVersion':
-    $result = array('apiVersion' => (int) $faqconfig->get('main.currentApiVersion'));
-    break;
-
-  case 'search':
-    $search = new PMF_Search($db, $Language);
-    $searchString = PMF_Filter::filterInput(INPUT_GET, 'q', FILTER_SANITIZE_STRIPPED);
-    $result = $search->search($searchString, false);
-    $url = $faqconfig->get('main.referenceURL') . '/index.php?action=artikel&cat=%d&id=%d&artlang=%s';
-
-    foreach ($result as &$data)
-      {
-      $data->answer = html_entity_decode(strip_tags($data->answer), ENT_COMPAT, 'utf-8');
-      $data->answer = PMF_Utils::makeShorterText($data->answer, 12);
-      $data->link = sprintf($url, $data->category_id, $data->id, $data->lang);
-      }
-    break;
-
-  case 'getCategories':
-    $category = new PMF_Category($current_user, $current_groups, true);
-    $result = $category->categories;
-    break;
-
-  case 'getFaqs':
-    $faq = new PMF_Faq($current_user, $current_groups);
-    $result = $faq->getAllRecordPerCategory($categoryId);
-    break;
-
-  case 'getFaq':
-    $faq = new PMF_Faq($current_user, $current_groups);
-    $faq->getRecord($recordId);
-    $result = $faq->faqRecord;
-    break;
+    return $record_id;
   }
-
-// print result as JSON
-print json_encode($result);
-

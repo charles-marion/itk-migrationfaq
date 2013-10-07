@@ -478,6 +478,7 @@ if ($faqconfig->get('main.enableRewriteRules')) {
         "msgContact"          => '<a href="index.php?'.$sids.'action=contact">'.$PMF_LANG["msgContact"].'</a>',
         "allCategories"       => '<a href="index.php?'.$sids.'action=show">'.$PMF_LANG["msgShowAllCategories"].'</a>',
         "backToHome"          => '<a href="index.php?'.$sids.'">'.$PMF_LANG["msgHome"].'</a>',
+        "adminPage"          => '<a style="font-size:10px" href="' . $systemUri . 'admin">Admin</a>',
         'showInstantResponse' => '<a href="index.php?'.$sids.'action=instantresponse">'.$PMF_LANG['msgInstantResponse'].'</a>',
         'showSitemap'         => '<a href="index.php?'.$sids.'action=sitemap&amp;lang='.$LANGCODE.'">'.$PMF_LANG['msgSitemap'].'</a>',
         'opensearch'          => $systemUri . 'opensearch.php');

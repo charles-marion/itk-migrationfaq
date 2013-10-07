@@ -21,7 +21,7 @@
  * @author    Meikel Katzengreis <meikel@katzengreis.com>
  * @author    Minoru TODA <todam@netjapan.co.jp>
  * @author    Matteo Scaramuccia <matteo@phpmyfaq.de>
- * @copyright 2002-2010 phpMyFAQ Team
+ * @copyright 2002-2011 phpMyFAQ Team
  * @license   http://www.mozilla.org/MPL/MPL-1.1.html Mozilla Public License Version 1.1
  * @link      http://www.phpmyfaq.de
  * @since     2002-09-16
@@ -40,7 +40,7 @@ if (!file_exists(PMF_ROOT_DIR . '/config/database.php')) {
 //
 // Define the named constant used as a check by any included PHP file
 //
-define('IS_VALID_PHPMYFAQ_ADMIN', null);
+define('IS_VALID_PHPMYFAQ', null);
 
 //
 // Autoload classes, prepend and start the PHP session
@@ -123,7 +123,7 @@ if (!is_null($faqusername) && !is_null($faqpassword)) {
     } else {
         // error
         $logging = new PMF_Logging();
-        $logging->logAdmin($user, 'Loginerror\nLogin: '.$faqusername.'\nPass: ********');
+        $logging->logAdmin($user, 'Loginerror\nLogin: '.$faqusername.'\nErrors: ' . implode(', ', $user->errors));
         $error = $PMF_LANG['ad_auth_fail'];
         $user  = null;
     }
@@ -159,6 +159,7 @@ if ($action == 'logout' && $auth) {
     $user = null;
     $auth = null;
 }
+
 if ($action == 'logout' ) {
    header("Location: ".str_replace('admin/index.php', '', $_SERVER['SCRIPT_NAME']).'');
 }
@@ -168,7 +169,7 @@ if ($action == 'logout' ) {
 //
 if (isset($user) && is_object($user)) {
     $current_admin_user = $user->getUserId();
-    if ($user->perm instanceof PMF_PermMedium) {
+    if ($user->perm instanceof PMF_Perm_PermMedium) {
         $current_admin_groups = $user->perm->getUserGroups($current_admin_user);
     } else {
         $current_admin_groups = array(-1);
@@ -213,7 +214,6 @@ if (isset($auth) && in_array(true, $permission)) {
             case 'comment':
             	require 'ajax.comment.php';
             	break;
-
             	
             // Records
             case 'records':	
@@ -266,6 +266,7 @@ if (isset($auth) && in_array(true, $permission)) {
             case 'copyentry':
             case "editpreview":             require_once 'record.edit.php'; break;
             case "errors":                   require_once 'errors.php'; break;
+
             case "insertentry":             require_once 'record.add.php'; break;
             case "saveentry":               require_once 'record.save.php'; break;
             case "delentry":                require_once 'record.delete.php'; break;
@@ -343,8 +344,63 @@ if (isset($auth) && in_array(true, $permission)) {
         <dt><strong>&rarr; <a href="?action=question"><?php print $PMF_LANG["msgOpenQuestions"]; ?></strong></a></dt>
         <dd><?php print $PMF_TABLE_INFO[SQLPREFIX."faqquestions"]; ?></dd>
     </dl>
-    
+    <?php printf('<h2>%s</h2>', $PMF_LANG['ad_online_info']); ?>
+    <div id="versioncheck">
+<?php
+        $version = PMF_Filter::filterInput(INPUT_POST, 'param', FILTER_SANITIZE_STRING);        
+        if (!is_null($version) && $version == 'version') {
+            $json   = file_get_contents('http://www.phpmyfaq.de/json/version.php');
+            $result = json_decode($json);
+            if ($result instanceof stdClass) {
+                printf('<p>%s <a href="http://www.phpmyfaq.de" target="_blank">www.phpmyfaq.de</a>: <strong>phpMyFAQ %s</strong>', 
+                    $PMF_LANG['ad_xmlrpc_latest'], 
+                    $result->stable);
+                // Installed phpMyFAQ version is outdated
+                if (-1 == version_compare($faqconfig->get('main.currentVersion'), $result->stable)) {
+                    print '<br /><a href="?action=upgrade">' . $PMF_LANG['ad_you_should_update'] - '</a>';
+                }
+                print '</p>';
+            }
+        } else {
+?>
+    <form action="index.php" method="post">
+    <input type="hidden" name="param" value="version" />
+    <input class="submit" type="submit" value="<?php print $PMF_LANG["ad_xmlrpc_button"]; ?>" />
+    </form>
+<?php
+        }
+?>
+    <br />
+    </div>
 
+    <?php printf('<h2>%s</h2>', $PMF_LANG['ad_online_info']); ?>
+    <div id="versioncheck">
+<?php
+        $version = PMF_Filter::filterInput(INPUT_POST, 'param', FILTER_SANITIZE_STRING);        
+        if (!is_null($version) && $version == 'version') {
+            $json   = file_get_contents('http://www.phpmyfaq.de/json/version.php');
+            $result = json_decode($json);
+            if ($result instanceof stdClass) {
+                printf('<p>%s <a href="http://www.phpmyfaq.de" target="_blank">www.phpmyfaq.de</a>: <strong>phpMyFAQ %s</strong>', 
+                    $PMF_LANG['ad_xmlrpc_latest'], 
+                    $result->stable);
+                // Installed phpMyFAQ version is outdated
+                if (-1 == version_compare($faqconfig->get('main.currentVersion'), $result->stable)) {
+                    print '<br />' . $PMF_LANG['ad_you_should_update'];
+                }
+                print '</p>';
+            }
+        } else {
+?>
+    <form action="index.php" method="post">
+    <input type="hidden" name="param" value="version" />
+    <input class="submit" type="submit" value="<?php print $PMF_LANG["ad_xmlrpc_button"]; ?>" />
+    </form>
+<?php
+        }
+?>
+    <br />
+    </div>
 
     <?php printf('<h2>%s</h2>', $PMF_LANG['ad_system_info']); ?>
     <dl>
@@ -380,7 +436,7 @@ if (isset($auth) && in_array(true, $permission)) {
 ?>
     <div id="main">
         <div class="centerlogin">
-        <form action="" method="post">
+        <form action="index.php" method="post">
         <fieldset class="login">
             <legend class="login">phpMyFAQ Login</legend>
 <?php

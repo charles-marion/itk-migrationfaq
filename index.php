@@ -27,12 +27,12 @@
  * @link      http://www.phpmyfaq.de
  * @since     2001-02-12
  */
+error_reporting(E_ALL | E_STRICT);
+ini_set('display_errors', 'on');
 
 //
 // Check if config/database.php exist -> if not, redirect to installer
 //
-error_reporting(E_ALL | E_STRICT);
-ini_set('display_errors', 'on');
 if (!file_exists('config/database.php')) {
     header("Location: install/setup.php");
     exit();
@@ -239,7 +239,10 @@ if ($faqconfig->get('main.enableUserTracking')) {
 //
 $lang = PMF_Filter::filterInput(INPUT_POST, 'artlang', FILTER_SANITIZE_STRING);
 if (is_null($lang) && !PMF_Language::isASupportedLanguage($lang) ) {
-    $lang = $LANGCODE;
+    $lang = PMF_Filter::filterInput(INPUT_GET, 'artlang', FILTER_SANITIZE_STRING);
+    if (is_null($lang) && !PMF_Language::isASupportedLanguage($lang) ) {
+        $lang = $LANGCODE;
+    }
 }
 
 //
@@ -459,8 +462,7 @@ if ($faqconfig->get('main.enableRewriteRules')) {
         "msgOpenQuestions"    => '<a href="' . $systemUri . 'open.html">'.$PMF_LANG["msgOpenQuestions"].'</a>',
         'msgHelp'             => '<a href="' . $systemUri . 'help.html">'.$PMF_LANG["msgHelp"].'</a>',
         "msgContact"          => '<a href="' . $systemUri . 'contact.html">'.$PMF_LANG["msgContact"].'</a>',
-        "backToHome"          => '<a href="' . $systemUri . 'index.html">Home</a>',
-        "adminPage"          => '<a href="' . $systemUri . 'admin">Home</a>',
+        "backToHome"          => '<a href="' . $systemUri . 'index.html">'.$PMF_LANG["msgHome"].'</a>',
         "allCategories"       => '<a href="' . $systemUri . 'showcat.html">'.$PMF_LANG["msgShowAllCategories"].'</a>',
         'showInstantResponse' => '<a href="' . $systemUri . 'instantresponse.html">'.$PMF_LANG['msgInstantResponse'].'</a>',
         'showSitemap'         => '<a href="' . $systemUri . 'sitemap/A/'.$LANGCODE.'.html">'.$PMF_LANG['msgSitemap'].'</a>',
@@ -475,8 +477,7 @@ if ($faqconfig->get('main.enableRewriteRules')) {
         "msgHelp"             => '<a href="index.php?'.$sids.'action=help">'.$PMF_LANG["msgHelp"].'</a>',
         "msgContact"          => '<a href="index.php?'.$sids.'action=contact">'.$PMF_LANG["msgContact"].'</a>',
         "allCategories"       => '<a href="index.php?'.$sids.'action=show">'.$PMF_LANG["msgShowAllCategories"].'</a>',
-        "backToHome"          => '<a href="index.php?'.$sids.'">Home</a>',
-      "adminPage"          => '<a style="font-size:10px" href="' . $systemUri . 'admin">Admin</a>',
+        "backToHome"          => '<a href="index.php?'.$sids.'">'.$PMF_LANG["msgHome"].'</a>',
         'showInstantResponse' => '<a href="index.php?'.$sids.'action=instantresponse">'.$PMF_LANG['msgInstantResponse'].'</a>',
         'showSitemap'         => '<a href="index.php?'.$sids.'action=sitemap&amp;lang='.$LANGCODE.'">'.$PMF_LANG['msgSitemap'].'</a>',
         'opensearch'          => $systemUri . 'opensearch.php');

@@ -23,7 +23,7 @@
  * @since     2003-02-23
  */
 
-if (!defined('IS_VALID_PHPMYFAQ_ADMIN')) {
+if (!defined('IS_VALID_PHPMYFAQ')) {
     header('Location: http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']));
     exit();
 }
@@ -115,8 +115,9 @@ if ($permission['editbt']) {
     <!--
     $(document).ready(function(){
         setTimeout(function() {
-            window.location = "../index.php?action=artikel&id=<?php echo $record_id?>";
+              window.location = "../index.php?action=artikel&id=<?php echo $record_id?>";
             }, 1000);
+
         });
     //-->
     </script>       

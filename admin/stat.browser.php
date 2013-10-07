@@ -1,13 +1,8 @@
 <?php
 /**
  * Sessionbrowser
- * 
- * @package    phpMyFAQ
- * @subpackage Administration
- * @author     Thorsten Rinne <thorsten@phpmyfaq.de>
- * @since      2003-02-24
- * @copyright  2003-2009 phpMyFAQ Team
- * @version    SVN: $Id$
+ *
+ * PHP Version 5.2
  *
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -18,9 +13,17 @@
  * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
  * License for the specific language governing rights and limitations
  * under the License.
+ * 
+ * @category  phpMyFAQ
+ * @package   Administration
+ * @author    Thorsten Rinne <thorsten@phpmyfaq.de>
+ * @copyright 2003-2011 phpMyFAQ Team
+ * @license   http://www.mozilla.org/MPL/MPL-1.1.html Mozilla Public License Version 1.1
+ * @link      http://www.phpmyfaq.de
+ * @since     2003-02-24
  */
 
-if (!defined('IS_VALID_PHPMYFAQ_ADMIN')) {
+if (!defined('IS_VALID_PHPMYFAQ')) {
     header('Location: http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']));
     exit();
 }
@@ -34,13 +37,13 @@ if ($permission['viewlog']) {
 	$session     = new PMF_Session();
     $sessiondata = $session->getSessionsbyDate($firstHour, $lastHour);
 ?>
-	<h2><?php print "Session ".date("Y-m-d", $day); ?></h2>
+	<h2><?php print $PMF_LANG['ad_sess_session'] . ' ' . date("Y-m-d", $day); ?></h2>
     <table class="list">
     <thead>
         <tr>
-            <th class="list">IP</th>
-            <th class="list">&nbsp;</th>
-            <th class="list">Session</th>
+            <th class="list"><?php print $PMF_LANG['ad_sess_ip']; ?></th>
+            <th class="list"><?php print $PMF_LANG['ad_sess_s_date']; ?></th>
+            <th class="list"><?php print $PMF_LANG['ad_sess_session']; ?></th>
         </tr>
     </thead>
     <tbody>

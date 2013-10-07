@@ -48,6 +48,9 @@ $record_id       = PMF_Filter::filterInput(INPUT_GET, 'id', FILTER_VALIDATE_INT)
 $solution_id     = PMF_Filter::filterInput(INPUT_GET, 'solution_id', FILTER_VALIDATE_INT);
 $highlight       = PMF_Filter::filterInput(INPUT_GET, 'highlight', FILTER_SANITIZE_STRIPPED);
 
+// Set the art language
+$faq->setLanguage($lang);
+
 // Get all data from the FAQ record
 if (0 == $solution_id) {
     $faq->getRecord($record_id);
@@ -79,6 +82,7 @@ foreach($contentArray as $key => $contentElement)
   $content.=$contentElement;
   }
 
+
 $thema   = $faq->getRecordTitle($faq->faqRecord['id']);
 // Add Glossary entries
 $content = $oGlossary->insertItemsIntoContent($content);
@@ -103,10 +107,15 @@ if (!is_null($highlight) && $highlight != "/" && $highlight != "<" && $highlight
     $highlight   = preg_quote($highlight, '/');
     $searchItems = explode(' ', $highlight);
 
+    $contentArray = explode("<h3>Broken API Sample Code:</h3>", $content);
+
     foreach ($searchItems as $item) {
         $thema   = PMF_Utils::setHighlightedString($thema, $item);
-        $content = PMF_Utils::setHighlightedString($content, $item);
+        $contentArray[0] = PMF_Utils::setHighlightedString($contentArray[0], $item);
     }
+    $contentArray[0].= "<h3>Broken API Sample Code:</h3>";
+    $content = join("", $contentArray);
+
 }
 
 // Hack: Apply the new SEO schema to those HTML anchors to
@@ -165,7 +174,7 @@ if ($num > 1) {
     $switchLanguage .= "<fieldset>\n";
     $switchLanguage .= "<legend>".$PMF_LANG["msgLangaugeSubmit"]."</legend>\n";
     $switchLanguage .= "<form action=\"".$changeLanguagePath."\" method=\"post\" style=\"display: inline;\">\n";
-    $switchLanguage .= "<select name=\"language\" size=\"1\">\n";
+    $switchLanguage .= "<select name=\"artlang\" size=\"1\">\n";
     $switchLanguage .= $check4Lang;
     $switchLanguage .= "</select>\n";
     $switchLanguage .= "&nbsp;\n";
@@ -281,6 +290,7 @@ if (count($arrLanguage) < count(PMF_Language::getAvailableLanguages())) {
             <img src="images/translate.gif" alt="'.$PMF_LANG['msgTranslate'].'" title="'.$PMF_LANG['msgTranslate'].'" width="16" height="16" border="0" /> '.$PMF_LANG['msgTranslate'].' '.PMF_Language::selectLanguages($LANGCODE, false, $arrLanguage, 'translation').' <input class="submit" type="submit" name="submit" value="'.$PMF_LANG['msgTranslateSubmit'].'" />
         </form>';
 }
+
 $faq_Model = new PMF_Faq(null,null);
 $hasErrors = false;
 
@@ -312,7 +322,7 @@ if($faq_Model->getErrorRecord($_GET['id'], 0)!==false)
     <div style='display:none;' class='loading'><img src='images/loading.gif'/></div>
     <div id='resultAjax'></div>";
   }
-  
+
   $systemUri      = PMF_Link::getSystemUri('index.php');
 
 
@@ -329,6 +339,7 @@ $tpl->processTemplate ("writeContent", array(
     'writeTagHeader'                => $PMF_LANG['msg_tags'] . ': ',
     'writeArticleTags'              => $tagging->getAllLinkTagsById($faq->faqRecord['id']),
     'writeRelatedArticlesHeader'    => $PMF_LANG['msg_related_articles'] . ': ',
+    'writeRelatedArticles'          => $relevant->getAllRelatedById($faq->faqRecord['id'], $faq->faqRecord['title'], $faq->faqRecord['keywords']),
     'writePopularity'               => $faqPopularity,
     'writeDateMsg'                  => $PMF_LANG['msgLastUpdateArticle'] . $faq->faqRecord['date'],
     'writeRevision'                 => $PMF_LANG['ad_entry_revision'] . ': 1.' . $faq->faqRecord['revision_id'],
@@ -370,4 +381,3 @@ $tpl->processTemplate ("writeContent", array(
     'writeComments'                 => $comment->getComments($faq->faqRecord['id'], PMF_Comment::COMMENT_TYPE_FAQ)));
 
 $tpl->includeTemplate('writeContent', 'index');
-

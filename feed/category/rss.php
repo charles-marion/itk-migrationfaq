@@ -24,6 +24,7 @@
  */
 
 define('PMF_ROOT_DIR', dirname(dirname(dirname(__FILE__))));
+define('IS_VALID_PHPMYFAQ', null);
 
 require_once PMF_ROOT_DIR.'/inc/Init.php';
 PMF_Init::cleanRequest();
@@ -69,17 +70,18 @@ if (is_array($records)) {
     foreach ($records as $item) {
         
         $link = str_replace($_SERVER['SCRIPT_NAME'], '/index.php', $item['record_link']);
+
         if (PMF_RSS_USE_SEO) {
             if (isset($item['record_title'])) {
                 $oLink            = new PMF_Link($link);
                 $oLink->itemTitle = $item['record_title'];
                 $link             = $oLink->toString();
            }
-       } 
+        }
 
         $rss->startElement('item');
         $rss->writeElement('title', html_entity_decode($item['record_title'] .
-                                    ' (' . $item['visits'] . ' '.$PMF_LANG['msgViews'].')'));
+                                    ' (' . $item['visits'] . ' '.$PMF_LANG['msgViews'].')', ENT_COMPAT, 'UTF-8'));
         
         $rss->startElement('description');
         $rss->writeCdata($item['record_preview']);

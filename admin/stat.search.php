@@ -18,7 +18,7 @@
  * @package   Administration
  * @author    Anatoliy Belsky <anatoliy.belsky@mayflower.de>
  * @author    Thorsten Rinne <thorsten@phpmyfaq.de>
- * @copyright 2003-2010 phpMyFAQ Team
+ * @copyright 2003-2011 phpMyFAQ Team
  * @license   http://www.mozilla.org/MPL/MPL-1.1.html Mozilla Public License Version 1.1
  * @link      http://www.phpmyfaq.de
  * @since     2003-03-30
@@ -33,14 +33,14 @@ if (isset($_GET['num']) && !defined('PMF_ROOT_DIR')) {
     session_start();
     
     $num = PMF_Filter::filterInput(INPUT_GET, 'num', FILTER_VALIDATE_FLOAT);
-    if(!is_null($num)) {
+    if (!is_null($num)) {
         $bar = new PMF_Bar($num);
         $bar->renderImage();
         exit;
     }
 }
 
-if (!defined('IS_VALID_PHPMYFAQ_ADMIN')) {
+if (!defined('IS_VALID_PHPMYFAQ')) {
     header('Location: http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']));
     exit();
 }
@@ -100,13 +100,13 @@ if ($permission['viewlog']) {
         }
         $displayedCounter++;
         
-        $num = round($searchItem['number']*100/$searchesCount, 2);
+        $num = round(($searchItem['number']*100 / $searchesCount), 2);
 ?>
 <tr>
 	<td class="list"><?php print PMF_String::htmlspecialchars($searchItem['searchterm']);  ?></td>
 	<td class="list"><?php print $searchItem['number'] ?></td>
 	<td class="list"><?php print $languageCodes[PMF_String::strtoupper($searchItem['lang'])] ?></td>
-	<td class="list"><img src="stat.search.php?num=<?php print $num ?>" alt="<?php print $num ?>%" title="<?php print $num ?>%" /></td>
+	<td class="list"><?php print $num ?> %</td>
 </tr>
 <?php
 	}

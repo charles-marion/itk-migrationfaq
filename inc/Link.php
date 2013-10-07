@@ -18,11 +18,15 @@
  * @package   PMF_Link  
  * @author    Matteo Scaramuccia <matteo@scaramuccia.com>
  * @author    Thorsten Rinne <thorsten@phpmyfaq.de>
- * @copyright 2005-2010 phpMyFAQ Team
+ * @copyright 2005-2011 phpMyFAQ Team
  * @license   http://www.mozilla.org/MPL/MPL-1.1.html Mozilla Public License Version 1.1
  * @link      http://www.phpmyfaq.de
  * @since     2005-11-02
  */
+
+if (!defined('IS_VALID_PHPMYFAQ')) {
+    exit();
+}
 
 /**
  * PMF_Link Class
@@ -35,17 +39,17 @@
  * @package   PMF_Link  
  * @author    Matteo Scaramuccia <matteo@scaramuccia.com>
  * @author    Thorsten Rinne <thorsten@phpmyfaq.de>
- * @copyright 2005-2010 phpMyFAQ Team
+ * @copyright 2005-2011 phpMyFAQ Team
  * @license   http://www.mozilla.org/MPL/MPL-1.1.html Mozilla Public License Version 1.1
  * @link      http://www.phpmyfaq.de
  * @since     2005-11-02
  */
 class PMF_Link
 {
-	/**
-	 * class constants
-	 * 
-	 */
+    /**
+     * class constants
+     *
+     */
     const PMF_LINK_AMPERSAND = '&amp;';
     const PMF_LINK_CATEGORY = 'category/';
     const PMF_LINK_CONTENT = 'content/';
@@ -152,6 +156,13 @@ class PMF_Link
      * @var string
      */
     public $itemTitle = '';
+
+    /**
+     * id selector
+     * 
+     * @var string
+     */
+    public $id = '';
 
     /**
      * Constructor
@@ -319,16 +330,18 @@ class PMF_Link
     protected function getQuery()
     {
         $query = '';
+        
         if (!empty($this->url)) {
             $parsed = parse_url($this->url);
+
             if (isset($parsed['query'])) {
                 $query['main'] = filter_var($parsed['query'], FILTER_SANITIZE_STRIPPED); 
             }
+            if (isset($parsed['fragment'])) {
+                $query['fragment'] = filter_var($parsed['fragment'], FILTER_SANITIZE_STRIPPED);
+            }
         }
-        if (isset($parsed['fragment'])) {
-            $query['fragment'] = filter_var($parsed['fragment'], FILTER_SANITIZE_STRIPPED);
-        }
-         
+
         return $query;
     }
 
@@ -408,6 +421,9 @@ class PMF_Link
         if (!empty($this->class)) {
             $htmlAnchor .= ' class="'.$this->class.'"';
         }
+        if (!empty($this->id)) {
+            $htmlAnchor .= ' id="'.$this->id.'"';
+        }
         if (!empty($this->tooltip)) {
             $htmlAnchor .= ' title="'.addslashes($this->tooltip).'"';
         }
@@ -468,14 +484,15 @@ class PMF_Link
         // Check mod_rewrite support and 'rewrite' the passed (system) uri
         // according to the rewrite rules written in .htaccess
         if ((!$forceNoModrewriteSupport) && ($faqconfig->get('main.enableRewriteRules'))) {
+
             if ($this->isHomeIndex()) {
+
                 $getParams = $this->getHttpGetParameters();
                 if (isset($getParams[self::PMF_LINK_GET_ACTION])) {
                     // Get the part of the url 'till the '/' just before the pattern
                     $url = substr($url, 0, strpos($url, self::PMF_LINK_INDEX_HOME) + 1);
-                    
                     // Build the Url according to .htaccess rules
-                    switch($getParams[self::PMF_LINK_GET_ACTION]) {
+                    switch ($getParams[self::PMF_LINK_GET_ACTION]) {
                         
                         case self::PMF_LINK_GET_ACTION_ADD:
                             $url .= self::PMF_LINK_HTML_ADDCONTENT;
@@ -565,8 +582,7 @@ class PMF_Link
                                 (isset($getParams[self::PMF_LINK_GET_CATEGORY]) && 
                                 (0 == $getParams[self::PMF_LINK_GET_CATEGORY]))) {
                                 $url .= self::PMF_LINK_HTML_SHOWCAT;
-                            }
-                            else {
+                            } else {
                                 $url .= self::PMF_LINK_CATEGORY . 
                                         $getParams[self::PMF_LINK_GET_CATEGORY];
                                 if (isset($getParams[self::PMF_LINK_GET_PAGE])) {
@@ -574,7 +590,7 @@ class PMF_Link
                                             $getParams[self::PMF_LINK_GET_PAGE];
                                 }
                                 $url .= self::PMF_LINK_HTML_SLASH . 
-                                        $this->getSEOItemTitle() . 
+                                        $this->getSEOItemTitle() .
                                         self::PMF_LINK_HTML_EXTENSION;
                             }
                             break;

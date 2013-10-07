@@ -24,11 +24,9 @@
  * @since     2005-11-01
  */
 
-/**
- * PHP 6 script encoding
- *
- */
-declare(encoding='latin1');
+if (!defined('IS_VALID_PHPMYFAQ')) {
+    exit();
+}
 
 /**#@+
   * HTTP GET Parameters PMF accepted keys definitions
@@ -60,10 +58,9 @@ class PMF_Utils
     /**
      * Get the content at the given URL using an HTTP GET call.
      *
-     * @access public
-     * @static
-     * @param $url URL of the content.               
-     * @return string Content at the given URL, false otherwise.
+     * @param string $url URL of the content
+     *
+     * @return string
      */
     public static function getHTTPContent($url)
     {
@@ -340,7 +337,7 @@ class PMF_Utils
     public static function highlightNoLinks(Array $matches)
     {
         $itemAsAttrName  = $matches[1];
-        $itemInAttrValue = $matches[2]; // $matches[3] is the attribute name
+        $itemInAttrValue = isset($matches[2]) ? $matches[2] : ''; // $matches[3] is the attribute name
         $prefix          = isset($matches[3]) ? $matches[3] : '';
         $item            = isset($matches[4]) ? $matches[4] : '';
         $postfix         = isset($matches[5]) ? $matches[5] : '';
@@ -351,5 +348,22 @@ class PMF_Utils
         
         // Fallback: the original matched string
         return $matches[0];
+    }
+
+    /**
+     * Returns the MIME type of a file according to the used PHP version
+     *
+     * @param string $filename Filename 
+     *
+     * @return string
+     */
+    public static function getMimeType($filename)
+    {
+        if (version_compare(PHP_VERSION, '5.3.0', '<')) {
+            return mime_content_type($filename);
+        } else {
+            $finfo = new finfo(FILEINFO_MIME_TYPE);
+            return $finfo->file($filename);
+        }
     }
 }

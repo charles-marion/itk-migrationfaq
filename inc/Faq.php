@@ -26,6 +26,10 @@
  * @since     2005-12-20
  */
 
+if (!defined('IS_VALID_PHPMYFAQ')) {
+    exit();
+}
+
 /**
  * SQL constants definitions
  */
@@ -179,7 +183,7 @@ class PMF_Faq
      * @param  string  $sortby      Sorty by
      * @return array
      */
-    public function gettAllRecordPerCategory($category_id, $orderby = 'id', $sortby = 'ASC')
+    public function getAllRecordPerCategory($category_id, $orderby = 'id', $sortby = 'ASC')
     {
         global $sids;
 
@@ -275,7 +279,7 @@ class PMF_Faq
                     $visits = $row->visits;
                 }
 
-                $url   = sprintf('%saction=artikel&cat=%d&id=%d&artlang=%s',
+                $url   = sprintf('%saction=artikel&amp;cat=%d&amp;id=%d&amp;artlang=%s',
                             $sids,
                             $row->category_id,
                             $row->id,
@@ -395,6 +399,7 @@ class PMF_Faq
             $this->db->escape_string($sortby));
 
         $result = $this->db->query($query);
+
         $num   = $this->db->num_rows($result);
         $pages = ceil($num / $faqconfig->get("main.numberOfRecordsPerPage"));
 
@@ -434,10 +439,8 @@ class PMF_Faq
                             $row->id,
                             $row->lang);
                             
-                $oLink            = new PMF_Link(PMF_Link::getSystemRelativeUri().'?'.$url);
-                $oLink->itemTitle = $row->thema;
-                $oLink->text      = $title;
-                $oLink->tooltip   = $title;
+                $oLink = new PMF_Link(PMF_Link::getSystemRelativeUri().'?'.$url);
+                $oLink->itemTitle = $oLink->text = $oLink->tooltip = $title;
                 
                 $listItem = sprintf('<li>%s<span id="viewsPerRecord"><br /><span class="little">(%s)</span>%s</span></li>',
                     $oLink->toHtmlAnchor(),
@@ -451,22 +454,18 @@ class PMF_Faq
             return false;
         }
 
-        $categoryName = 'CategoryId-'.$category_id;
-        if (isset($category)) {
-            $categoryName = $category->categoryName[$category_id]['name'];
-        }
-        
         if ($pages > 1) {
-            
-            $baseUrl = PMF_Link::getSystemRelativeUri() . '?'
-                     . (empty($sids) ? '' : "$sids&amp;")
-                     . 'action=show&amp;cat=' . $category_id
-                     . '&amp;seite=' . $page;
-            
+
+            $baseUrl = PMF_Link::getSystemRelativeUri() . '?' .
+                       (empty($sids) ? '' : $sids) .
+                       'action=show&amp;cat=' . $category_id .
+                       '&amp;seite=' . $page;
+
             $options = array('baseUrl'         => $baseUrl,
                              'total'           => $num,
                              'perPage'         => $faqconfig->get('main.numberOfRecordsPerPage'),
                              'pageParamName'   => 'seite',
+                             'seoName'         => $title,
                              'nextPageLinkTpl' => '<a href="{LINK_URL}">' . $this->pmf_lang['msgNext'] . '</a>',
                              'prevPageLinkTpl' => '<a href="{LINK_URL}">' . $this->pmf_lang['msgPrevious'] . '</a>',
                              'layoutTpl'       => '<p align="center"><strong>{LAYOUT_CONTENT}</strong></p>');
@@ -807,8 +806,8 @@ class PMF_Faq
         $this->db->query($query);
         return $record_id;
     }
-
-    /**
+    
+     /**
      * Adds a new error record
      *
      * @param  array   $data       Array of FAQ data
@@ -853,6 +852,60 @@ class PMF_Faq
         $this->db->query($query);
         return true;
     }
+    
+      /**
+     * Gets the record ID from a path
+     *
+     * @param  string $path XML PATH
+     * @return array
+     */
+    public function getIdFromChange($path)
+    {
+        $query = sprintf("
+            SELECT
+                id
+            FROM
+                %sfaqdata
+            ",
+            SQLPREFIX,
+            $path);
+
+        $result = $this->db->query($query." WHERE
+                links_state LIKE '$path'");
+
+        if ($row = $this->db->fetch_object($result)) {
+            return $row->id;
+        }
+
+        return null;
+    }
+
+    
+      /**
+     * Returns  category by name
+     *
+     * @param  string $name  Category Name
+     * @return void
+     */
+    public function getCategoryByName($name)
+        {
+        $latest_id        = 0;
+        $next_solution_id = 0;
+
+        $query = sprintf('
+            SELECT
+               id
+            FROM
+                %sfaqcategories',
+            SQLPREFIX);
+        $result = $this->db->query($query." WHERE name like '%$name%'");
+
+        if ($row = $this->db->fetch_object($result)) {
+            return $row->id;
+        }
+        return null;
+    }
+
     
     /** remove and error*/
     public function removeError($id, $id_data)
@@ -948,6 +1001,8 @@ class PMF_Faq
            return false;
         }
     }
+
+
     /**
      * Updates a record
      *
@@ -1292,32 +1347,6 @@ class PMF_Faq
         return null;
     }
 
-        /**
-     * Gets the record ID from a path
-     *
-     * @param  string $path XML PATH
-     * @return array
-     */
-    public function getIdFromChange($path)
-    {
-        $query = sprintf("
-            SELECT
-                id
-            FROM
-                %sfaqdata
-            ",
-            SQLPREFIX,
-            $path);
-
-        $result = $this->db->query($query." WHERE
-                links_state LIKE '$path'");
-
-        if ($row = $this->db->fetch_object($result)) {
-            return $row->id;
-        }
-
-        return null;
-    }
     /**
      * Gets the latest solution id for a FAQ record
      *
@@ -1349,30 +1378,6 @@ class PMF_Faq
         return $next_solution_id;
     }
 
-    /**
-     * Returns  category by name
-     *
-     * @param  string $name  Category Name
-     * @return void
-     */
-    public function getCategoryByName($name)
-        {
-        $latest_id        = 0;
-        $next_solution_id = 0;
-
-        $query = sprintf('
-            SELECT
-               id
-            FROM
-                %sfaqcategories',
-            SQLPREFIX);
-        $result = $this->db->query($query." WHERE name like '%$name%'");
-
-        if ($row = $this->db->fetch_object($result)) {
-            return $row->id;
-        }
-        return null;
-    }
     /**
      * Returns an array with all data from all FAQ records
      *

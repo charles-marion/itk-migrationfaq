@@ -65,7 +65,6 @@ function dump($var)
  */
 function pmf_debug($string)
 {
-  return;
     // sometimes Zend Optimizer causes segfaults with debug_backtrace()
     if (extension_loaded('Zend Optimizer')) {
         $ret = "<pre>" . $string . "</pre><br />\n";
@@ -267,8 +266,8 @@ function IPCheck($ip)
     $listBannedIPs = PMF_Configuration::getInstance()->get('main.bannedIPs');
     $bannedIPs     = explode(' ', $listBannedIPs);
     
-    foreach ($bannedIPs as $oneIPorNetwork) {
-        if (checkForAddrMatchIpv4($ip, $oneIPorNetwork)) {
+    foreach ($bannedIPs as $oneIPerNetwork) {
+        if (checkForAddrMatchIpv4($ip, $oneIPerNetwork)) {
             return false;
         }
     }

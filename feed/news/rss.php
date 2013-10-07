@@ -25,6 +25,7 @@
  */
 
 define('PMF_ROOT_DIR', dirname(dirname(dirname(__FILE__))));
+define('IS_VALID_PHPMYFAQ', null);
 
 require_once(PMF_ROOT_DIR.'/inc/Init.php');
 PMF_Init::cleanRequest();
@@ -83,7 +84,7 @@ if ($num > 0) {
         }
 
         $rss->startElement('item');
-        $rss->writeElement('title', html_entity_decode($item['header']));
+        $rss->writeElement('title', html_entity_decode($item['header'], ENT_COMPAT, 'UTF-8'));
 
         $rss->startElement('description');
         $rss->writeCdata($item['content']);

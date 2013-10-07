@@ -26,6 +26,10 @@
  * @since     2004-02-16
  */
 
+if (!defined('IS_VALID_PHPMYFAQ')) {
+    exit();
+}
+
 /**
  * PMF_Category
  *
@@ -247,7 +251,7 @@ class PMF_Category
         if (true == $parent_id) {
             $query .= 'parent_id = 0';
         }
-        foreach (explode(';', $categories) as $cats) {
+        foreach (explode(',', $categories) as $cats) {
             $_query .= ' OR parent_id = '.$cats;
         }
         if (false == $parent_id && 0 < PMF_String::strlen($_query)) {
@@ -259,7 +263,7 @@ class PMF_Category
         $query .= " ORDER BY id";
         $result = $this->db->query($query);
         while ($row = $this->db->fetch_assoc($result)) {
-            $this->categories[] = $row;
+            $this->categories[$row['id']] = $row;
         }
         return $this->categories;
     }
@@ -741,6 +745,7 @@ class PMF_Category
     {
         $url              = sprintf('%saction=show&amp;cat=%d', $sids, $categoryId);
         $oLink            = new PMF_Link(PMF_Link::getSystemRelativeUri().'?'.$url);
+        $oLink->id        = 'category_' . $categoryId;
         $oLink->itemTitle = $categoryName;
         $oLink->text      = $categoryName;
         

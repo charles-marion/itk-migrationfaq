@@ -23,7 +23,7 @@
  * @since     2009-05-12
  */
 
-if (!defined('IS_VALID_PHPMYFAQ_ADMIN')) {
+if (!defined('IS_VALID_PHPMYFAQ')) {
     header('Location: http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']));
     exit();
 }
@@ -48,12 +48,16 @@ switch($ajax_action) {
                  * Here we deal with a two dimensional array
                  */
                 foreach ($val as $key2 => $val2) {
+                    $val2 = str_replace(array('\\\\', '\"', '\\\''), array('\\', '"', "'"), $val2);
+                    $val2 = str_replace("'", "\\'", $val2);
                     $_SESSION['trans']['rightVarsOnly']["PMF_LANG[$key][$key2]"] = $val2;
                 }
             }
         }
         
         foreach ((array)@$_POST['LANG_CONF'] as $key => $val) {
+            $val = str_replace(array('\\\\', '\"', '\\\''), array('\\', '"', "'"), $val);
+            $val = str_replace("'", "\\'", $val);
             $_SESSION['trans']['rightVarsOnly']["LANG_CONF[$key]"] = $val;
         }
         

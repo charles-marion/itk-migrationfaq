@@ -23,6 +23,7 @@
  */
 
 define('PMF_ROOT_DIR', dirname(dirname(dirname(__FILE__))));
+define('IS_VALID_PHPMYFAQ', null);
 
 require_once(PMF_ROOT_DIR.'/inc/Init.php');
 PMF_Init::cleanRequest();
@@ -73,8 +74,8 @@ if ($num > 0) {
         if (PMF_RSS_USE_SEO) {
             if (isset($item['thema'])) {
                 $oLink            = new PMF_Link($link);
-                $oLink->itemTitle = $item['thema'];
-                $link             = html_entity_decode($oLink->toString());
+                $oLink->itemTitle = html_entity_decode($item['thema'], ENT_COMPAT, 'UTF-8');
+                $link             = html_entity_decode($oLink->toString(), ENT_COMPAT, 'UTF-8');
             }
         }
         // Get the content
@@ -83,7 +84,7 @@ if ($num > 0) {
         $content = str_replace("<img src=\"/", "<img src=\"".PMF_Link::getSystemUri('/feed/latest/rss.php')."/", $content);
 
         $rss->startElement('item');
-        $rss->writeElement('title', html_entity_decode($item['thema']));
+        $rss->writeElement('title', html_entity_decode($item['thema'], ENT_COMPAT, 'UTF-8'));
 
         $rss->startElement('description');
         $rss->writeCdata($content);

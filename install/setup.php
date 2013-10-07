@@ -24,17 +24,18 @@
  * @author    Johannes Schlüter <johannes@php.net>
  * @author    Uwe Pries <uwe.pries@digartis.de>
  * @author    Matteo Scaramuccia <matteo@phpmyfaq.de>
- * @copyright 2002-2010 phpMyFAQ Team
+ * @copyright 2002-2011 phpMyFAQ Team
  * @license   http://www.mozilla.org/MPL/MPL-1.1.html Mozilla Public License Version 1.1
  * @link      http://www.phpmyfaq.de
  * @since     2002-08-20
  */
 
-define('VERSION', '2.6.9');
+define('VERSION', '2.6.19');
 define('APIVERSION', 1);
 define('MINIMUM_PHP_VERSION', '5.2.0');
-define('COPYRIGHT', '&copy; 2001-2010 <a href="http://www.phpmyfaq.de/">phpMyFAQ Team</a> | Follow us on <a href="http://twitter.com/phpMyFAQ">Twitter</a> | All rights reserved.');
+define('COPYRIGHT', '&copy; 2001-2011 <a href="http://www.phpmyfaq.de/">phpMyFAQ Team</a> | Follow us on <a href="http://twitter.com/phpMyFAQ">Twitter</a> | All rights reserved.');
 define('PMF_ROOT_DIR', dirname(dirname(__FILE__)));
+define('IS_VALID_PHPMYFAQ', null);
 
 if ((@ini_get('safe_mode') != 'On' || @ini_get('safe_mode') !== 1)) {
     set_time_limit(0);
@@ -1050,7 +1051,19 @@ echo '</dl><input type="hidden" name="systemdata" value="'.PMF_String::htmlspeci
     if (file_exists(PMF_ROOT_DIR."/phpmyfaq.spec")) {
         @unlink(PMF_ROOT_DIR."/phpmyfaq.spec");
     }
-
+    
+    // Remove 'setup.php' file
+    if (@unlink(basename($_SERVER['SCRIPT_NAME']))) {
+        print "<p class=\"center\">The file <em>./install/setup.php</em> was deleted automatically.</p>\n";
+    } else {
+        print "<p class=\"center\">Please delete the file <em>./install/setup.php</em> manually.</p>\n";
+    }
+    // Remove 'update.php' file
+    if (@unlink(dirname($_SERVER["PATH_TRANSLATED"])."/update.php")) {
+        print "<p class=\"center\">The file <em>./install/update.php</em> was deleted automatically.</p>\n";
+    } else {
+        print "<p class=\"center\">Please delete the file <em>./install/update.php</em> manually.</p>\n";
+    }
     
     HTMLFooter();
 

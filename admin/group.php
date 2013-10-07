@@ -2,13 +2,7 @@
 /**
  * Displays the user managment frontend
  *
- * @package    phpMyFAQ
- * @subpackage Administration
- * @author     Lars Tiedemann <php@larstiedemann.de>
- * @author     Thorsten Rinne <thorsten@phpmyfaq.de>
- * @since      2005-12-15
- * @version    SVN: $Id$
- * @copyright  2005-2009 phpMyFAQ Team
+ * PHP 5.2
  *
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -19,9 +13,18 @@
  * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
  * License for the specific language governing rights and limitations
  * under the License.
+ *
+ * @category  phpMyFAQ
+ * @package   Administration
+ * @author    Lars Tiedemann <php@larstiedemann.de>
+ * @author    Thorsten Rinne <thorsten@phpmyfaq.de>
+ * @copyright 2005-2011 phpMyFAQ Team
+ * @license   http://www.mozilla.org/MPL/MPL-1.1.html Mozilla Public License Version 1.1
+ * @link      http://www.phpmyfaq.de
+ * @since     2005-12-15
  */
 
-if (!defined('IS_VALID_PHPMYFAQ_ADMIN')) {
+if (!defined('IS_VALID_PHPMYFAQ')) {
     header('Location: http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']));
     exit();
 }
@@ -164,7 +167,7 @@ if ($groupAction == 'update_data') {
 // delete group confirmation
 if ($groupAction == 'delete_confirm') {
     $message = '';
-    $user    = new PMF_User();
+    $user    = new PMF_User_CurrentUser();
     $perm    = $user->perm;
     $groupId = PMF_Filter::filterInput(INPUT_POST, 'group_list_select', FILTER_VALIDATE_INT, 0);
     if ($groupId <= 0) {
@@ -181,6 +184,7 @@ if ($groupAction == 'delete_confirm') {
         <p><?php print $text['delGroup_question']; ?></p>
         <form action ="?action=group&amp;group_action=delete" method="post">
             <input type="hidden" name="group_id" value="<?php print $groupId; ?>" />
+            <input type="hidden" name="csrf" value="<?php print $user->getCsrfTokenFromSession(); ?>" />
             <div class="button_row">
                 <input class="reset" type="submit" name="cancel" value="<?php print $text['delGroup_cancel']; ?>" />
                 <input class="submit" type="submit" value="<?php print $text['delGroup_confirm']; ?>" />
@@ -190,18 +194,22 @@ if ($groupAction == 'delete_confirm') {
 </div>
 <?php
     }
-} // end if ($groupAction == 'delete_confirm')
-// delete group
+}
+
 if ($groupAction == 'delete') {
-    $message = '';
-    $user    = new PMF_User();
-    $perm    = $user->perm;
-    $groupId = PMF_Filter::filterInput(INPUT_POST, 'group_id', FILTER_VALIDATE_INT, 0);
+    $message   = '';
+    $user      = new PMF_User();
+    $groupId   = PMF_Filter::filterInput(INPUT_POST, 'group_id', FILTER_VALIDATE_INT, 0);
+    $csrfOkay  = true;
+    $csrfToken = PMF_Filter::filterInput(INPUT_POST, 'csrf', FILTER_SANITIZE_STRING);
+    if (!isset($_SESSION['phpmyfaq_csrf_token']) || $_SESSION['phpmyfaq_csrf_token'] !== $csrfToken) {
+        $csrfOkay = false; 
+    }
     $groupAction = $defaultGroupAction;
     if ($groupId <= 0) {
         $message .= '<p class="error">'.$errorMessages['delGroup_noId'].'</p>';
     } else {
-        if (!$perm->deleteGroup($groupId)) {
+        if (!$user->perm->deleteGroup($groupId) && !$csrfOkay) {
             $message .= '<p class="error">'.$errorMessages['delGroup'].'</p>';
         } else {
             $message .= '<p class="success">'.$successMessages['delGroup'].'</p>';
@@ -212,28 +220,34 @@ if ($groupAction == 'delete') {
         }
     }
 
-} // end if ($groupAction == 'delete')
-// save new group
+}
+
 if ($groupAction == 'addsave') {
-    $user     = new PMF_User();
-    $message  = '';
-    $messages = array();
-    // check input data
+    $user              = new PMF_User();
+    $message           = '';
+    $messages          = array();
     $group_name        = PMF_Filter::filterInput(INPUT_POST, 'group_name', FILTER_SANITIZE_STRING, '');
     $group_description = PMF_Filter::filterInput(INPUT_POST, 'group_description', FILTER_SANITIZE_STRING, '');
     $group_auto_join   = PMF_Filter::filterInput(INPUT_POST, 'group_auto_join', FILTER_SANITIZE_STRING, '');
+    $csrfOkay          = true;
+    $csrfToken         = PMF_Filter::filterInput(INPUT_POST, 'csrf', FILTER_SANITIZE_STRING);
+
+    if (!isset($_SESSION['phpmyfaq_csrf_token']) || $_SESSION['phpmyfaq_csrf_token'] !== $csrfToken) {
+        $csrfOkay = false; 
+    }
     // check group name
-    if ($group_name == "") {
+    if ($group_name == '') {
         $messages[] = $errorMessages['addGroup_noName'];
     }
     // ok, let's go
-    if (count($messages) == 0) {
+    if (count($messages) == 0 && $csrfOkay) {
         // create group
         $group_data = array(
             'name'        => $group_name,
             'description' => $group_description,
             'auto_join'   => $group_auto_join
         );
+
         if ($user->perm->addGroup($group_data) <= 0)
             $messages[] = $errorMessages['addGroup_db'];
     }
@@ -256,11 +270,13 @@ if (!isset($message))
 
 // show new group form
 if ($groupAction == 'add') {
+    $user = new PMF_User_CurrentUser();
 ?>
 <h2><?php print $text['header']; ?></h2>
 <div id="user_message"><?php print $message; ?></div>
 <div id="group_create">
     <form name="group_create" action="?action=group&amp;group_action=addsave" method="post">
+    <input type="hidden" name="csrf" value="<?php print $user->getCsrfTokenFromSession(); ?>" />
         <fieldset>
             <legend><?php print $text['addGroup']; ?></legend>
                 <div class="input_row">
@@ -307,14 +323,14 @@ var groupList;
  */
 function getGroupList()
 {
-	clearGroupList();
-	$.getJSON("index.php?action=ajax&ajax=group&ajaxaction=get_all_groups",
-	    function(data) {
-		    $.each(data, function(i, val) {
-			    $('#group_list_select').append('<option value="' + val.group_id + '">' + val.name + '</option>');
-	        });
-	    });
-	processGroupList();
+    clearGroupList();
+    $.getJSON("index.php?action=ajax&ajax=group&ajaxaction=get_all_groups",
+        function(data) {
+            $.each(data, function(i, val) {
+                $('#group_list_select').append('<option value="' + val.group_id + '">' + val.name + '</option>');
+            });
+        });
+    processGroupList();
 }
 
 /**
@@ -572,7 +588,7 @@ getGroupList();
             <fieldset id="group_userList">
                 <legend><?php print $text['groupMembership_userList']; ?></legend>
                 <div>
-                    <span class="select_all"><a href="javascript:select_selectAll('group_user_list')"><?php print $text['groupMembership_selectAll']; ?></a></span>
+                    <span class="select_all"><a href="javascript:select_selectAll('group_user_list')"><?php print $text['groupMembership_selectAll']; ?></a></span> |
                     <span class="unselect_all"><a href="javascript:select_unselectAll('group_user_list')"><?php print $text['groupMembership_unselectAll']; ?></a></span>
                 </div>
                 <select id="group_user_list" multiple="multiple" size="<?php print $memberSelectSize; ?>">
@@ -586,7 +602,7 @@ getGroupList();
             <fieldset id="group_memberList">
                 <legend><?php print $text['groupMembership_memberList']; ?></legend>
                 <div>
-                    <span class="select_all"><a href="javascript:select_selectAll('group_member_list')"><?php print $text['groupMembership_selectAll']; ?></a></span>
+                    <span class="select_all"><a href="javascript:select_selectAll('group_member_list')"><?php print $text['groupMembership_selectAll']; ?></a></span> |
                     <span class="unselect_all"><a href="javascript:select_unselectAll('group_member_list')"><?php print $text['groupMembership_unselectAll']; ?></a></span>
                 </div>
                 <select id="group_member_list" name="group_members[]" multiple="multiple" size="<?php print $memberSelectSize; ?>">
@@ -632,7 +648,7 @@ getGroupList();
             <form id="rightsForm" action="?action=group&amp;group_action=update_rights" method="post">
                 <input id="rights_group_id" type="hidden" name="group_id" value="0" />
                 <div>
-                    <span class="select_all"><a href="javascript:form_checkAll('rightsForm')"><?php print $text['changeRights_checkAll']; ?></a></span>
+                    <span class="select_all"><a href="javascript:form_checkAll('rightsForm')"><?php print $text['changeRights_checkAll']; ?></a></span> |
                     <span class="unselect_all"><a href="javascript:form_uncheckAll('rightsForm')"><?php print $text['changeRights_uncheckAll']; ?></a></span>
                 </div>
                 <table id="group_rights_table">

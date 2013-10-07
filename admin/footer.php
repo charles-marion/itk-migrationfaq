@@ -67,7 +67,7 @@ tinyMCE.init({
     width    : "720",
     height   : "480",
     theme    : "advanced",
-    plugins  : "spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,syntaxhl,phpmyfaq",
+    plugins  : "spellchecker,pagebreak,style,layer,table,save,advhr,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,syntaxhl,phpmyfaq",
     theme_advanced_blockformats : "p,div,h1,h2,h3,h4,h5,h6,blockquote,dt,dd,code,samp",
 
     // Theme options
@@ -83,8 +83,6 @@ tinyMCE.init({
     use_native_selects      : true,
     extended_valid_elements : "code",
 
-    // Ajax-based file manager
-    file_browser_callback : "ajaxfilemanager",
 
     // Example content CSS (should be your site CSS)
     content_css : "../template/<?php print PMF_Template::getTplSetName(); ?>/style.css",
@@ -98,30 +96,6 @@ tinyMCE.init({
         user_id  : "<?php print $user->userdata->get('user_id'); ?>"
     }
 });
-
-function ajaxfilemanager(field_name, url, type, win)
-{
-    var ajaxfilemanagerurl = "editor/plugins/ajaxfilemanager/ajaxfilemanager.php";
-    switch (type) {
-        case "image":
-        case "media":
-        case "flash": 
-        case "file":
-            break;
-        default:
-            return false;
-    }
-    tinyMCE.activeEditor.windowManager.open({
-        url            : "editor/plugins/ajaxfilemanager/ajaxfilemanager.php",
-        width          : 782,
-        height         : 440,
-        inline         : "yes",
-        close_previous : "no"
-    },{
-        window : win,
-        input  : field_name
-    });
-}
 
 
 
